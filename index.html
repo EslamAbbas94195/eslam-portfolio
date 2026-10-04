@@ -2,208 +2,70 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="theme-color" content="#0b0d12">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#070d1b">
+<meta name="description" content="Eslam Abbas — IT Systems Engineer">
 <title>Eslam Abbas — IT Systems Engineer</title>
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 <style>
-:root{--bg:#0b0d12;--panel:#12161e;--panel2:#171c25;--ink:#f2f5f7;--muted:#929ba9;--lime:#c6ff4d;--cyan:#6de7f5;--line:rgba(255,255,255,.11);--mono:"DM Mono",monospace;--sans:"Manrope",sans-serif}
+:root{--bg:#070d1b;--bg2:#0b1427;--card:#101b30;--gold:#ffc451;--gold2:#ff9d27;--text:#f4f6fb;--muted:#9aa8bf;--line:rgba(153,176,211,.18);--blue:#53baff}
 *{box-sizing:border-box;margin:0;padding:0}
-html{scroll-behavior:smooth;scroll-padding-top:90px}
-body{background:var(--bg);color:var(--ink);font-family:var(--sans);overflow-x:hidden;-webkit-font-smoothing:antialiased}
-body:before{content:"";position:fixed;inset:0;pointer-events:none;z-index:-1;background:radial-gradient(ellipse at 76% 9%,rgba(109,231,245,.08),transparent 30%),radial-gradient(ellipse at 12% 45%,rgba(198,255,77,.055),transparent 28%)}
-a{color:inherit;text-decoration:none}button{font:inherit;color:inherit}::selection{background:var(--lime);color:#0b0d12}
-.noise{position:fixed;inset:0;pointer-events:none;z-index:10;opacity:.035;background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 180 180' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='.5'/%3E%3C/svg%3E")}
-.container{width:min(1160px,calc(100% - 48px));margin:auto}
-.eyebrow{font:11px var(--mono);letter-spacing:.16em;text-transform:uppercase;color:var(--lime);display:flex;align-items:center;gap:10px}
-.eyebrow:before{content:"";width:22px;height:1px;background:var(--lime)}
-header{position:sticky;top:0;z-index:20;background:rgba(11,13,18,.78);backdrop-filter:blur(18px);border-bottom:1px solid rgba(255,255,255,.07)}
-.nav{height:76px;display:flex;align-items:center;justify-content:space-between}
-.brand{font-weight:800;letter-spacing:-.06em;font-size:19px}.brand span{color:var(--lime)}
-.navlinks{display:flex;gap:30px;align-items:center;color:#b8c0cb;font-size:12px}
-.navlinks a{transition:color .2s}.navlinks a:hover{color:var(--lime)}
-.nav-cta{border:1px solid rgba(198,255,77,.55);color:var(--lime);padding:11px 15px;border-radius:3px;font:11px var(--mono);letter-spacing:.04em}
-.menu-btn{display:none;background:none;border:1px solid var(--line);padding:8px 10px}
-.hero{min-height:690px;padding:90px 0 70px;display:grid;grid-template-columns:1.15fr .85fr;align-items:center;gap:44px;position:relative}
-.hero-copy{position:relative;z-index:2}
-.availability{display:inline-flex;align-items:center;gap:9px;border:1px solid var(--line);border-radius:30px;padding:8px 12px;color:#c2c9d2;font:10px var(--mono);letter-spacing:.05em;margin-bottom:29px;background:rgba(255,255,255,.025)}
-.pulse{width:7px;height:7px;background:var(--lime);border-radius:50%;box-shadow:0 0 0 5px rgba(198,255,77,.09);animation:pulse 2s infinite}
-@keyframes pulse{50%{box-shadow:0 0 0 9px rgba(198,255,77,0)}}
-h1{font-size:clamp(52px,7.4vw,96px);line-height:.98;letter-spacing:-.085em;font-weight:800;margin-bottom:25px}
-h1 .outline{color:transparent;-webkit-text-stroke:1px rgba(242,245,247,.7)}
-h1 .accent{color:var(--lime)}
-.hero-desc{font-size:15px;line-height:1.9;color:var(--muted);max-width:480px}
-.hero-desc strong{color:#e7ebef;font-weight:600}
-.hero-actions{display:flex;gap:12px;flex-wrap:wrap;margin-top:31px}
-.btn{display:inline-flex;align-items:center;justify-content:center;gap:12px;padding:14px 18px;font-size:12px;font-weight:800;border:1px solid var(--line);transition:transform .25s,background .25s,border .25s}
-.btn:hover{transform:translateY(-3px)}.btn-primary{background:var(--lime);color:#0b0d12;border-color:var(--lime)}.btn-secondary:hover{border-color:var(--cyan);color:var(--cyan)}
-.arrow{font-size:17px;line-height:0}
-.hero-meta{display:flex;gap:26px;margin-top:44px;color:var(--muted);font:10px var(--mono);text-transform:uppercase;letter-spacing:.1em}
-.hero-meta span{display:flex;align-items:center;gap:8px}.hero-meta b{color:var(--ink);font-weight:400}
-.visual{min-height:480px;position:relative;display:grid;place-items:center;isolation:isolate}
-.visual-grid{position:absolute;inset:7% 0;background-image:linear-gradient(rgba(255,255,255,.055) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.055) 1px,transparent 1px);background-size:38px 38px;mask-image:radial-gradient(ellipse,black 15%,transparent 72%);z-index:-2}
-.orbit{position:absolute;width:min(390px,90%);aspect-ratio:1;border:1px solid rgba(109,231,245,.25);border-radius:50%;animation:spin 30s linear infinite}
-.orbit:before,.orbit:after{content:"";position:absolute;border:1px solid rgba(198,255,77,.22);border-radius:50%;inset:11%}
-.orbit:after{inset:24%;border-color:rgba(255,255,255,.12)}
+html{scroll-behavior:smooth;scroll-padding-top:76px}
+body{min-width:320px;background:var(--bg);color:var(--text);font-family:Arial,Helvetica,sans-serif;overflow-x:hidden;line-height:1.5}
+body:before{content:"";position:fixed;inset:0;z-index:-2;background:radial-gradient(circle at 80% 12%,#182343 0,transparent 34%),radial-gradient(circle at 0 65%,#111d35 0,transparent 38%),#070d1b}
+body:after{content:"";position:fixed;inset:0;z-index:-1;pointer-events:none;opacity:.14;background-image:linear-gradient(rgba(128,160,211,.13) 1px,transparent 1px),linear-gradient(90deg,rgba(128,160,211,.13) 1px,transparent 1px);background-size:44px 44px}
+a{color:inherit;text-decoration:none}button{font:inherit}.wrap{width:min(1160px,calc(100% - 32px));margin:auto}
+/* NAV */
+.nav{height:68px;position:sticky;top:0;z-index:100;background:rgba(7,13,27,.96);border-bottom:1px solid var(--line)}
+.navin{height:100%;display:flex;align-items:center;justify-content:space-between;gap:12px}.brand{display:flex;align-items:center;gap:9px;font-weight:800;font-size:16px}.brandmark{font-size:22px;color:var(--gold);letter-spacing:-4px}.brand small{display:block;font-size:9px;font-weight:400;color:var(--muted);letter-spacing:1px;margin-top:1px}.desktop-links{display:none}.nav-actions{display:flex;align-items:center;gap:8px}.cv-btn{display:inline-flex;align-items:center;justify-content:center;border:1px solid var(--gold);border-radius:999px;padding:9px 12px;color:var(--gold);font-size:11px;font-weight:700}.menu-btn{width:40px;height:40px;border:1px solid var(--line);background:#101b30;border-radius:10px;color:var(--text);font-size:20px;cursor:pointer}.mobile-menu{display:none;position:absolute;top:68px;left:0;right:0;padding:12px 16px 18px;background:#091122;border-bottom:1px solid var(--line);box-shadow:0 15px 35px #0008}.mobile-menu.open{display:block}.mobile-menu a{display:block;padding:14px 12px;border-bottom:1px solid var(--line);font-size:14px;color:#dbe4f3}.mobile-menu a:last-child{border-bottom:0}
+/* BUTTONS */
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;border:1px solid var(--gold);padding:12px 17px;border-radius:999px;color:var(--gold);font-size:12px;font-weight:700;transition:.2s}.btn.primary{background:linear-gradient(120deg,#ffd36c,#ffad2f);color:#121522;border:0}.btn:active{transform:scale(.97)}
+/* HERO */
+.hero{padding:48px 0 58px;position:relative}.hero-copy{text-align:center}.eyebrow{display:flex;align-items:center;justify-content:center;gap:9px;color:var(--gold);font-size:10px;text-transform:uppercase;letter-spacing:2px;margin-bottom:18px}.eyebrow:before,.eyebrow:after{content:"";width:24px;height:1px;background:var(--gold)}h1{font-size:clamp(48px,16vw,72px);line-height:.92;letter-spacing:-3px;font-weight:800}h1 span{color:var(--gold)}.role{font-size:20px;margin:16px 0 15px;font-weight:600}.intro{max-width:480px;margin:auto;color:#aab6ca;font-size:14px;line-height:1.8}.actions{display:flex;justify-content:center;gap:9px;flex-wrap:wrap;margin-top:23px}.quick{display:flex;justify-content:center;gap:14px;flex-wrap:wrap;margin-top:23px;color:#aab6ca;font-size:10px}.quick b{color:var(--gold);font-size:13px}
+/* PORTRAIT */
+.portrait-zone{height:330px;margin:18px auto 0;position:relative;display:grid;place-items:center;max-width:500px}.halo{position:absolute;width:250px;height:250px;border:1px solid #ffc45199;border-radius:50%;box-shadow:0 0 55px #ffb52b18,inset 0 0 40px #ffb52b0e;animation:spin 18s linear infinite}.halo:before,.halo:after{content:"";position:absolute;inset:22px;border:1px solid #ffc45135;border-radius:50%;transform:rotate(35deg) scaleX(.65)}.halo:after{inset:-18px;transform:rotate(-35deg) scaleX(.7)}.portrait{position:relative;width:270px;height:315px;display:grid;place-items:end center;overflow:hidden}.portrait img{width:100%;height:100%;object-fit:contain;object-position:center bottom;filter:drop-shadow(0 18px 28px #000b);display:block}.portrait-fallback{width:190px;height:235px;border-radius:50% 50% 20% 20%;display:grid;place-items:center;font-size:72px;font-weight:800;color:var(--gold);background:linear-gradient(145deg,#1a2944,#0b1325);border:1px solid #ffc45175;box-shadow:0 0 60px #ffbf3c18}.orbit-tag{position:absolute;left:50%;bottom:0;transform:translateX(-50%);white-space:nowrap;padding:9px 13px;border:1px solid var(--line);border-radius:10px;background:#0b1427;backdrop-filter:blur(8px);font-size:10px;color:#dbe5f5}.orbit-tag strong{color:var(--gold);margin-right:5px}
+.specialties{display:grid;grid-template-columns:repeat(2,1fr);gap:9px;margin-top:24px}.specialty{display:flex;align-items:center;gap:9px;min-width:0;padding:11px 9px;border:1px solid var(--line);border-radius:10px;background:#0e182b;color:#d9e1ef;font-size:11px}.ico{width:28px;height:28px;display:grid;place-items:center;border-radius:7px;color:var(--gold);background:#ffc45113;font-size:14px;flex:none}.scrollcue{display:none}
+/* SECTIONS */
+.section{padding:62px 0;border-top:1px solid var(--line)}.mini-label{font-size:9px;letter-spacing:2px;color:var(--gold);text-transform:uppercase;margin-bottom:11px}.section h2{font-size:30px;line-height:1.12;letter-spacing:-1px}.sectionhead{margin-bottom:28px}.sectionhead p{color:var(--muted);font-size:12px;margin-top:9px}.about-copy{color:#aab6ca;line-height:1.85;font-size:13px}.about-copy p+p{margin-top:13px}.traits{display:flex;gap:8px;flex-wrap:wrap;margin-top:20px}.trait{padding:8px 10px;border:1px solid var(--line);border-radius:8px;font-size:10px;color:#dbe4f3;background:#111a2c}.trait b{color:var(--gold);margin-right:4px}
+.skills{display:grid;grid-template-columns:1fr 1fr;gap:9px;margin-top:24px}.skill{padding:13px 10px;border:1px solid var(--line);border-radius:10px;background:var(--card);display:flex;align-items:center;gap:9px}.skill .ico{width:34px;height:34px}.skill strong{display:block;font-size:11px}.skill small{display:block;color:var(--muted);font-size:9px;margin-top:3px}
+.project-grid{display:grid;grid-template-columns:1fr;gap:12px}.project{padding:19px;border:1px solid var(--line);border-radius:15px;background:linear-gradient(140deg,#111d32,#0b1324);position:relative;overflow:hidden}.projecttop{display:flex;align-items:center;justify-content:space-between;margin-bottom:16px}.project-icon{width:42px;height:42px;border:1px solid #ffc45155;border-radius:11px;display:grid;place-items:center;color:var(--gold);font-size:19px;background:#ffc4510c}.number{font-size:10px;color:#718099}.project h3{font-size:17px;margin-bottom:7px}.project p{font-size:12px;line-height:1.75;color:var(--muted)}.tags{display:flex;gap:6px;flex-wrap:wrap;margin-top:15px}.tags span{font-size:9px;color:#c8d3e6;padding:5px 7px;border:1px solid var(--line);border-radius:5px;background:#ffffff04}
+.timeline{border-left:1px solid #ffc45150;margin-left:6px;padding-left:20px;display:grid;gap:25px}.job{position:relative}.job:before{content:"";position:absolute;left:-26px;top:4px;width:9px;height:9px;border-radius:50%;background:var(--gold);box-shadow:0 0 14px #ffc45177}.job time{font-size:9px;color:var(--gold);letter-spacing:.5px}.job h3{font-size:15px;margin:6px 0}.job h3 span{font-weight:400;color:var(--muted)}.job p{color:var(--muted);font-size:12px;line-height:1.7}
+.contactbox{padding:23px;border:1px solid #ffc45145;border-radius:17px;background:radial-gradient(circle at 100% 0,#ffc45112,transparent 48%),#0e1729}.contactbox h2{font-size:28px;margin-bottom:9px}.contactbox p{color:var(--muted);font-size:12px;line-height:1.7}.contactlinks{display:flex;flex-direction:column;gap:11px;margin-top:22px}.contactlinks a{font-size:11px;color:#e5ebf6;overflow-wrap:anywhere}.contactlinks a:hover{color:var(--gold)}footer{padding:25px 0;color:#728099;font-size:10px}.footerin{display:flex;flex-direction:column;gap:8px}
+.reveal{opacity:0;transform:translateY(18px);transition:opacity .6s ease,transform .6s ease}.reveal.visible{opacity:1;transform:none}
 @keyframes spin{to{transform:rotate(360deg)}}
-.orbit-dot{position:absolute;left:17%;top:12%;width:10px;height:10px;border-radius:50%;background:var(--lime);box-shadow:0 0 22px var(--lime)}
-.profile-card{width:260px;height:330px;position:relative;background:linear-gradient(145deg,#222b35,#10131a 65%);border:1px solid rgba(255,255,255,.17);padding:12px;transform:rotate(3deg);box-shadow:20px 28px 70px #0008;animation:levitate 6s ease-in-out infinite}
-@keyframes levitate{0%,100%{transform:translateY(0) rotate(3deg)}50%{transform:translateY(-12px) rotate(1deg)}}
-.profile-image{height:100%;width:100%;object-fit:cover;object-position:center 18%;filter:grayscale(100%);background:linear-gradient(135deg,#28333c,#10131a)}
-.profile-card:after{content:"";position:absolute;inset:12px;background:linear-gradient(180deg,transparent 45%,rgba(11,13,18,.86));pointer-events:none}
-.card-caption{position:absolute;bottom:27px;left:25px;right:25px;z-index:2;display:flex;justify-content:space-between;align-items:end}
-.card-caption strong{display:block;font-size:16px;letter-spacing:-.04em}.card-caption small{font:9px var(--mono);color:var(--lime);letter-spacing:.12em}
-.float-tag{position:absolute;background:#171c25;border:1px solid var(--line);padding:13px 15px;box-shadow:0 15px 40px #0005;font:10px var(--mono);color:#cbd2db;animation:levitate 5s ease-in-out infinite}
-.float-tag b{color:var(--lime);font-weight:400}.tag-one{top:15%;right:-1%;animation-delay:-1.2s}.tag-two{bottom:15%;left:-2%;animation-delay:-3s}
-.tag-icon{color:var(--cyan);font-size:14px;margin-right:7px}
-.scroll-note{position:absolute;bottom:25px;right:0;writing-mode:vertical-rl;color:#65707d;font:9px var(--mono);letter-spacing:.16em}
-.marquee{border-top:1px solid var(--line);border-bottom:1px solid var(--line);overflow:hidden;background:#10141b;padding:17px 0}
-.marquee-track{display:flex;gap:35px;width:max-content;animation:marquee 32s linear infinite;color:#9ca6b2;font:10px var(--mono);letter-spacing:.14em;text-transform:uppercase}
-.marquee-track span{display:flex;align-items:center;gap:35px}.marquee-track i{color:var(--lime);font-style:normal;font-size:17px}
-@keyframes marquee{to{transform:translateX(-50%)}}
-section{padding:110px 0}
-.section-head{display:flex;align-items:end;justify-content:space-between;gap:25px;margin-bottom:43px}
-.section-title{font-size:clamp(34px,4.5vw,55px);letter-spacing:-.07em;line-height:1.08;margin-top:17px}
-.section-title span{color:var(--muted)}
-.section-intro{max-width:330px;color:var(--muted);font-size:13px;line-height:1.8}
-.projects{display:grid;grid-template-columns:repeat(2,1fr);gap:15px}
-.project{position:relative;min-height:320px;overflow:hidden;background:var(--panel);border:1px solid var(--line);padding:27px;display:flex;flex-direction:column;transition:border-color .3s,transform .3s}
-.project:hover{border-color:rgba(198,255,77,.55);transform:translateY(-5px)}
-.project-top{display:flex;justify-content:space-between;align-items:center}
-.project-num{font:11px var(--mono);color:var(--lime)}
-.project-kind{font:9px var(--mono);color:#7f8a98;letter-spacing:.1em;text-transform:uppercase;border:1px solid var(--line);padding:6px 8px}
-.project-art{height:95px;display:flex;align-items:center;justify-content:center;position:relative;margin:18px 0 23px;overflow:hidden}
-.art-ring{width:95px;height:95px;border:1px solid rgba(109,231,245,.45);border-radius:50%;position:absolute;animation:spin 18s linear infinite}
-.art-ring:before{content:"";position:absolute;inset:15px;border:1px dashed rgba(198,255,77,.45);border-radius:50%}
-.art-symbol{font-size:35px;color:var(--lime);position:relative;text-shadow:0 0 25px rgba(198,255,77,.18)}
-.art-lines{position:absolute;width:180px;height:55px;border-top:1px solid rgba(255,255,255,.13);border-bottom:1px solid rgba(255,255,255,.13);transform:rotate(-15deg)}
-.project h3{font-size:21px;letter-spacing:-.05em;margin-bottom:10px}
-.project p{color:var(--muted);font-size:12px;line-height:1.8;max-width:48ch}
-.stack{display:flex;flex-wrap:wrap;gap:7px;margin-top:18px}
-.stack span{font:9px var(--mono);color:#c0c8d2;background:#1c222c;padding:7px 9px}
-.project-link{margin-top:auto;padding-top:23px;color:var(--lime);font:10px var(--mono);letter-spacing:.07em}
-.project-link span{display:inline-block;transition:transform .2s}.project:hover .project-link span{transform:translate(4px,-4px)}
-.experience{display:grid;grid-template-columns:.7fr 1.3fr;gap:70px}
-.experience-side{position:relative}.big-number{font-size:clamp(65px,9vw,110px);letter-spacing:-.1em;line-height:1;color:var(--lime);margin:24px 0 10px}
-.experience-side p{font-size:13px;line-height:1.8;color:var(--muted);max-width:230px}
-.timeline{border-top:1px solid var(--line)}
-.job{display:grid;grid-template-columns:130px 1fr;gap:25px;padding:25px 0;border-bottom:1px solid var(--line)}
-.job-date{font:10px var(--mono);line-height:1.8;color:var(--lime)}
-.job h3{font-size:17px;letter-spacing:-.04em}.job h3 span{font-weight:500;color:var(--muted)}
-.job p{font-size:12px;color:var(--muted);line-height:1.8;margin-top:8px}
-.skills-section{background:#10141b;border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
-.skills-layout{display:grid;grid-template-columns:.75fr 1.25fr;gap:70px}
-.skills-layout .section-title{max-width:350px}
-.skill-groups{display:grid;grid-template-columns:1fr 1fr;gap:12px}
-.skill-group{border:1px solid var(--line);padding:23px;background:rgba(255,255,255,.018);transition:background .25s,border .25s}
-.skill-group:hover{background:rgba(198,255,77,.035);border-color:rgba(198,255,77,.3)}
-.skill-group .icon{font-size:20px;color:var(--cyan);margin-bottom:18px}
-.skill-group h3{font-size:14px;margin-bottom:12px}
-.skill-group p{font-size:11px;line-height:2;color:var(--muted)}
-.cert-row{display:flex;flex-wrap:wrap;gap:10px;margin-top:20px}
-.cert{font:10px var(--mono);border:1px solid var(--line);padding:10px 12px;color:#c4ccd5}
-.contact{padding:110px 0 80px}
-.contact-box{border:1px solid rgba(198,255,77,.3);background:linear-gradient(120deg,rgba(198,255,77,.07),rgba(109,231,245,.035) 55%,transparent);padding:clamp(28px,6vw,65px);position:relative;overflow:hidden}
-.contact-box:after{content:"LET'S BUILD";position:absolute;right:-20px;bottom:-50px;font-size:clamp(75px,15vw,180px);font-weight:800;letter-spacing:-.1em;color:rgba(255,255,255,.025);pointer-events:none;white-space:nowrap}
-.contact-content{position:relative;z-index:1;max-width:720px}
-.contact h2{font-size:clamp(40px,7vw,78px);letter-spacing:-.08em;line-height:1.02;margin:22px 0}
-.contact h2 span{color:var(--lime)}
-.contact p{font-size:13px;line-height:1.9;color:var(--muted);max-width:490px}
-.contact-links{display:flex;flex-wrap:wrap;gap:10px;margin-top:27px}
-.contact-links a{font-size:11px;border:1px solid var(--line);padding:12px 14px;transition:all .2s}
-.contact-links a:hover{border-color:var(--lime);color:var(--lime)}
-footer{border-top:1px solid var(--line);padding:23px 0 30px;display:flex;justify-content:space-between;gap:20px;color:#697482;font:9px var(--mono);letter-spacing:.08em;text-transform:uppercase}
-.reveal{opacity:0;transform:translateY(24px);transition:opacity .75s ease,transform .75s cubic-bezier(.2,.75,.25,1)}
-.reveal.visible{opacity:1;transform:translateY(0)}
-.delay-1{transition-delay:.1s}.delay-2{transition-delay:.2s}.delay-3{transition-delay:.3s}
-@media(max-width:850px){.hero{grid-template-columns:1fr;gap:10px;padding-top:70px}.hero-copy{max-width:680px}.visual{min-height:430px}.tag-one{right:8%}.tag-two{left:8%}.scroll-note{display:none}.experience,.skills-layout{grid-template-columns:1fr;gap:40px}.experience-side p{max-width:450px}.big-number{margin:16px 0 5px}.navlinks{gap:17px}}
-@media(max-width:600px){.container{width:min(100% - 32px,1160px)}.nav{height:66px}.navlinks{display:none;position:absolute;top:66px;left:0;right:0;background:#10141b;border-bottom:1px solid var(--line);padding:20px 24px;flex-direction:column;align-items:flex-start}.navlinks.open{display:flex}.menu-btn{display:block}.nav-cta{display:none}.hero{padding:58px 0 35px;min-height:auto}h1{font-size:clamp(50px,15vw,76px)}.hero-desc{font-size:13px}.hero-meta{gap:14px;flex-wrap:wrap;margin-top:30px;font-size:9px}.visual{min-height:390px}.profile-card{width:220px;height:280px}.orbit{width:315px}.float-tag{font-size:9px;padding:10px}.tag-one{right:0;top:14%}.tag-two{left:0;bottom:13%}.section-head{align-items:flex-start;flex-direction:column;margin-bottom:28px}section{padding:76px 0}.projects{grid-template-columns:1fr}.project{min-height:300px;padding:23px}.project-art{height:75px}.skill-groups{grid-template-columns:1fr}.job{grid-template-columns:1fr;gap:8px;padding:21px 0}.contact{padding:75px 0 55px}.contact-box{padding:28px 22px}footer{flex-direction:column;line-height:1.8}.section-intro{font-size:12px}}
-@media(prefers-reduced-motion:reduce){*,*:before,*:after{animation-duration:.01ms!important;animation-iteration-count:1!important;scroll-behavior:auto!important;transition-duration:.01ms!important}.reveal{opacity:1;transform:none}}
+@media(min-width:700px){.wrap{width:min(1160px,calc(100% - 44px))}.menu-btn,.mobile-menu{display:none!important}.desktop-links{display:flex;gap:24px;color:#c5cede;font-size:12px}.nav{height:78px}.cv-btn{padding:10px 15px}.hero{min-height:650px;display:grid;grid-template-columns:1fr 1fr;align-items:center;gap:25px;padding:65px 0}.hero-copy{text-align:left}.eyebrow{justify-content:flex-start}.eyebrow:after{display:none}.portrait-zone{height:470px;grid-column:2;grid-row:1}.specialties{grid-column:1/-1;grid-template-columns:repeat(3,1fr);margin-top:0}.scrollcue{display:block;position:absolute;bottom:12px;left:50%;transform:translateX(-50%);font-size:9px;letter-spacing:2px;color:#74839b;text-transform:uppercase}.scrollcue span{display:block;width:1px;height:24px;background:linear-gradient(var(--gold),transparent);margin:8px auto 0}.aboutgrid{display:grid;grid-template-columns:1fr 1fr;gap:55px;align-items:center}.project-grid{grid-template-columns:1fr 1fr}.section{padding:85px 0}.contactbox{display:flex;align-items:center;justify-content:space-between;gap:30px;padding:35px}.contactlinks{margin-top:0}.footerin{flex-direction:row;justify-content:space-between}}
+@media(min-width:1000px){.hero{grid-template-columns:1fr 1.05fr .72fr}.specialties{grid-column:3;grid-row:1;grid-template-columns:1fr;margin-top:0}.portrait-zone{grid-column:2;grid-row:1}.hero-copy{grid-column:1}.project-grid{grid-template-columns:repeat(2,1fr)}}
+@media(prefers-reduced-motion:reduce){*,*:before,*:after{animation:none!important;scroll-behavior:auto!important;transition:none!important}.reveal{opacity:1;transform:none}}
 </style>
 </head>
 <body>
-<div class="noise"></div>
-<header>
-  <div class="container nav">
-    <a class="brand" href="#top">EA<span>.</span></a>
-    <nav class="navlinks" id="navlinks">
-      <a href="#work">Selected work</a><a href="#experience">Experience</a><a href="#skills">Expertise</a><a href="#contact">Contact</a>
-    </nav>
-    <a class="nav-cta" href="#contact">LET'S CONNECT ↗</a>
-    <button class="menu-btn" id="menuBtn" aria-label="Open navigation">☰</button>
-  </div>
-</header>
-<main id="top">
-  <div class="container hero">
-    <div class="hero-copy">
-      <div class="availability"><span class="pulse"></span> IT SYSTEMS ENGINEER · CAIRO, EGYPT</div>
-      <h1>Making IT<br>work <span class="outline">smarter.</span><br><span class="accent">Not harder.</span></h1>
-      <p class="hero-desc">I keep infrastructure running, connect systems across locations, and build <strong>practical automation</strong> that gives IT teams their time back.</p>
-      <div class="hero-actions"><a class="btn btn-primary" href="#work">EXPLORE MY WORK <span class="arrow">↘</span></a><a class="btn btn-secondary" href="Eslam_Abbas_CV.pdf" download>DOWNLOAD RÉSUMÉ <span class="arrow">↓</span></a></div>
-      <div class="hero-meta"><span><b>01</b> Infrastructure</span><span><b>02</b> Automation</span><span><b>03</b> Problem solving</span></div>
-    </div>
-    <div class="visual" aria-label="Profile visual">
-      <div class="visual-grid"></div><div class="orbit"><span class="orbit-dot"></span></div>
-      <div class="profile-card"><img class="profile-image" src="profile.jpg" alt="Eslam Abbas" onerror="this.style.opacity='0';this.parentElement.style.background='radial-gradient(circle at 50% 30%, #35434b, #11151d 65%)'">
-        <div class="card-caption"><div><strong>Eslam Abbas</strong><small>IT / SYSTEMS / AUTOMATION</small></div><small>EA—01</small></div>
-      </div>
-      <div class="float-tag tag-one"><span class="tag-icon">⌘</span> AUTOMATION <b>ONLINE</b></div>
-      <div class="float-tag tag-two"><span class="tag-icon">↗</span> SYSTEM STATUS <b>STABLE</b></div>
-      <div class="scroll-note">SCROLL TO EXPLORE ↓</div>
-    </div>
-  </div>
-  <div class="marquee"><div class="marquee-track">
-    <span>Windows Server <i>✳</i> Active Directory <i>✳</i> Network Infrastructure <i>✳</i> Python & PowerShell <i>✳</i> IT Automation <i>✳</i> VMware <i>✳</i></span>
-    <span aria-hidden="true">Windows Server <i>✳</i> Active Directory <i>✳</i> Network Infrastructure <i>✳</i> Python & PowerShell <i>✳</i> IT Automation <i>✳</i> VMware <i>✳</i></span>
-  </div></div>
-  <section id="work">
-    <div class="container">
-      <div class="section-head reveal"><div><div class="eyebrow">01 / Selected work</div><h2 class="section-title">Built to solve.<br><span>Designed to scale.</span></h2></div><p class="section-intro">A few practical tools I've built to reduce repetitive work, centralize information, and make day-to-day IT operations more reliable.</p></div>
-      <div class="projects">
-        <article class="project reveal"><div class="project-top"><span class="project-num">PROJECT / 01</span><span class="project-kind">DEVICE MANAGEMENT</span></div><div class="project-art"><div class="art-lines"></div><div class="art-ring"></div><div class="art-symbol">⌁</div></div><h3>Fingerprint Device Sync</h3><p>A Flask dashboard to manage ZKTeco devices and transfer fingerprint templates remotely—reducing the need for branch-by-branch enrollment visits.</p><div class="stack"><span>Python</span><span>Flask</span><span>ZKTeco SDK</span><span>Active Directory</span></div><a class="project-link" href="https://www.youtube.com/watch?v=E1HY2pmcCdQ" target="_blank" rel="noopener">WATCH PROJECT DEMO <span>↗</span></a></article>
-        <article class="project reveal delay-1"><div class="project-top"><span class="project-num">PROJECT / 02</span><span class="project-kind">IT OPERATIONS</span></div><div class="project-art"><div class="art-lines"></div><div class="art-ring"></div><div class="art-symbol">▦</div></div><h3>IT Assets & Ticketing Tracker</h3><p>A centralized view of hardware, licenses, and support requests, with email-to-ticket classification and Snipe-IT integration.</p><div class="stack"><span>Python</span><span>Flask</span><span>Snipe-IT API</span><span>Active Directory</span></div><a class="project-link" href="https://www.youtube.com/watch?v=dznGJttPyUM" target="_blank" rel="noopener">WATCH PROJECT DEMO <span>↗</span></a></article>
-        <article class="project reveal"><div class="project-top"><span class="project-num">PROJECT / 03</span><span class="project-kind">INFRASTRUCTURE</span></div><div class="project-art"><div class="art-lines"></div><div class="art-ring"></div><div class="art-symbol">◷</div></div><h3>DVR / NVR Time Sync</h3><p>A one-action utility using Hikvision ISAPI to synchronize recorder clocks instead of configuring each device manually.</p><div class="stack"><span>Hikvision ISAPI</span><span>REST</span><span>Automation</span></div><a class="project-link" href="https://www.youtube.com/watch?v=AFu2GS5dqYU" target="_blank" rel="noopener">WATCH PROJECT DEMO <span>↗</span></a></article>
-        <article class="project reveal delay-1"><div class="project-top"><span class="project-num">PROJECT / 04</span><span class="project-kind">SYSTEM HEALTH</span></div><div class="project-art"><div class="art-lines"></div><div class="art-ring"></div><div class="art-symbol">⌬</div></div><h3>Hardware Health Automation</h3><p>A PowerShell scan of domain-joined machines for disk health and memory specifications, helping turn hardware decisions into data-backed ones.</p><div class="stack"><span>PowerShell</span><span>CIM / WMI</span><span>Active Directory</span></div><a class="project-link" href="https://www.youtube.com/watch?v=EyXus4Ru3BU" target="_blank" rel="noopener">WATCH PROJECT DEMO <span>↗</span></a></article>
-      </div>
-    </div>
-  </section>
-  <section id="experience">
-    <div class="container experience">
-      <div class="experience-side reveal"><div class="eyebrow">02 / Experience</div><div class="big-number">6<span style="font-size:.48em">+</span></div><p>Years supporting people, systems, and multi-site IT operations.</p></div>
-      <div class="timeline reveal delay-1">
-        <article class="job"><div class="job-date">JAN 2026 — NOW</div><div><h3>IT System Engineer <span>· IMTENAN Group</span></h3><p>Windows Server, Active Directory, VMware ESXi, infrastructure support, and in-house automation tools.</p></div></article>
-        <article class="job"><div class="job-date">MAR 2022 — JAN 2026</div><div><h3>IT System & Network Engineer <span>· Fathallah Beit El Gomla</span></h3><p>Supported 10+ branches, worked with Sophos VPN, and handled 150+ support tickets monthly.</p></div></article>
-        <article class="job"><div class="job-date">MAR 2021 — MAR 2022</div><div><h3>IT Specialist <span>· Carrefour Egypt</span></h3><p>On-site support for POS systems, endpoint issues, and store network connectivity.</p></div></article>
-        <article class="job"><div class="job-date">FEB 2020 — MAR 2021</div><div><h3>IT Support <span>· Military Service</span></h3><p>Day-to-day IT support for 100+ users in a structured operational environment.</p></div></article>
-      </div>
-    </div>
-  </section>
-  <section id="skills" class="skills-section">
-    <div class="container skills-layout">
-      <div class="reveal"><div class="eyebrow">03 / Expertise</div><h2 class="section-title">The tools behind<br><span>the solutions.</span></h2><p class="section-intro" style="margin-top:22px">A hands-on mix of systems administration, networking, scripting, and practical troubleshooting.</p><div class="cert-row"><span class="cert">CCNA</span><span class="cert">MCSA</span><span class="cert">CompTIA A+</span><span class="cert">CompTIA N+</span></div></div>
-      <div class="skill-groups">
-        <article class="skill-group reveal"><div class="icon">⌘</div><h3>Systems & Identity</h3><p>Windows Server<br>Active Directory<br>VMware ESXi</p></article>
-        <article class="skill-group reveal delay-1"><div class="icon">⌁</div><h3>Networks & Security</h3><p>FortiGate<br>Sophos VPN<br>Managed switches</p></article>
-        <article class="skill-group reveal delay-2"><div class="icon">⟨/⟩</div><h3>Automation & APIs</h3><p>Python · Flask<br>PowerShell<br>REST APIs · CIM/WMI</p></article>
-        <article class="skill-group reveal delay-3"><div class="icon">▤</div><h3>IT Operations</h3><p>Endpoint support<br>Asset management<br>Multi-branch troubleshooting</p></article>
-      </div>
-    </div>
-  </section>
-  <section id="contact" class="contact">
-    <div class="container">
-      <div class="contact-box reveal"><div class="contact-content"><div class="eyebrow">04 / Contact</div><h2>Have a system to fix<br>or a process to <span>improve?</span></h2><p>I'm always interested in useful technology, cleaner workflows, and solving the problems that slow teams down.</p><div class="contact-links"><a href="mailto:eslam.abbas.jobs@gmail.com">✉ EMAIL ME ↗</a><a href="https://linkedin.com/in/eslam-abbas" target="_blank" rel="noopener">LINKEDIN ↗</a><a href="tel:+201004802080">+20 100 480 2080</a></div></div></div>
-    </div>
-  </section>
-</main>
-<footer class="container"><span>© ESLAM ABBAS · IT SYSTEMS ENGINEER</span><span>BUILT WITH CURIOSITY & A LITTLE AUTOMATION ↗</span></footer>
+<header class="nav"><div class="wrap navin">
+<a class="brand" href="#home"><span class="brandmark">&lt;/&gt;</span><span>Eslam Abbas<small>IT SYSTEMS ENGINEER</small></span></a>
+<nav class="desktop-links"><a href="#home">Home</a><a href="#about">About</a><a href="#skills">Skills</a><a href="#projects">Projects</a><a href="#experience">Experience</a><a href="#contact">Contact</a></nav>
+<div class="nav-actions"><a class="cv-btn" href="Eslam_Abbas_CV.pdf" download>↓ CV</a><button class="menu-btn" id="menuBtn" aria-label="Open menu" aria-expanded="false">☰</button></div>
+</div><nav class="mobile-menu" id="mobileMenu"><a href="#home">Home</a><a href="#about">About</a><a href="#skills">Skills</a><a href="#projects">Projects</a><a href="#experience">Experience</a><a href="#contact">Contact</a></nav></header>
+<main id="home">
+<section class="wrap hero">
+<div class="hero-copy"><div class="eyebrow">IT · Systems · Automation</div><h1>Eslam<br><span>Abbas.</span></h1><div class="role">IT Systems Engineer</div><p class="intro">I keep infrastructure reliable, solve complex IT problems, and build practical tools that make everyday operations smarter.</p><div class="actions"><a class="btn primary" href="#projects">Explore my work ↗</a><a class="btn" href="#contact">Let's connect ↗</a></div><div class="quick"><span><b>⌖</b> Cairo, Egypt</span><span><b>✉</b> Email me</span><span><b>in</b> LinkedIn</span></div></div>
+<div class="portrait-zone"><div class="halo"></div><div class="portrait"><img src="profile.jpg" alt="Eslam Abbas" onerror="this.style.display='none';document.getElementById('fallback').style.display='grid'"><div id="fallback" class="portrait-fallback">EA</div></div><div class="orbit-tag"><strong>Systems thinker</strong> · Making IT work better.</div></div>
+<div class="specialties"><div class="specialty"><span class="ico">⌘</span>Networking</div><div class="specialty"><span class="ico">▦</span>Windows Server</div><div class="specialty"><span class="ico">◈</span>FortiGate</div><div class="specialty"><span class="ico">♙</span>Active Directory</div><div class="specialty"><span class="ico">⌁</span>Automation</div><div class="specialty"><span class="ico">⚙</span>IT Support</div></div><div class="scrollcue">Scroll to explore<span></span></div>
+</section>
+<section class="section" id="about"><div class="wrap aboutgrid"><div class="reveal"><div class="mini-label">01 / About me</div><h2>Turning IT challenges into <span style="color:var(--gold)">smart solutions.</span></h2><div class="about-copy" style="margin-top:18px"><p>I'm an IT Systems Engineer focused on networking, system administration, and user support across business environments.</p><p>I enjoy connecting the dots between infrastructure, automation, and practical day-to-day IT operations.</p></div><div class="traits"><span class="trait"><b>01</b> Problem Solver</span><span class="trait"><b>02</b> Quick Learner</span><span class="trait"><b>03</b> Team Player</span></div></div><div class="reveal"><div class="mini-label">My focus</div><div class="skills" id="skills"><div class="skill"><span class="ico">▦</span><div><strong>Windows Server</strong><small>Server & AD</small></div></div><div class="skill"><span class="ico">⌘</span><div><strong>Networking</strong><small>Infrastructure</small></div></div><div class="skill"><span class="ico">◈</span><div><strong>FortiGate</strong><small>Firewall & VPN</small></div></div><div class="skill"><span class="ico">⌁</span><div><strong>Automation</strong><small>Python & PowerShell</small></div></div><div class="skill"><span class="ico">◫</span><div><strong>VMware</strong><small>Virtualization</small></div></div><div class="skill"><span class="ico">⚙</span><div><strong>IT Support</strong><small>Troubleshooting</small></div></div></div></div></div></section>
+<section class="section" id="projects"><div class="wrap"><div class="sectionhead reveal"><div class="mini-label">02 / Selected work</div><h2>Projects with a purpose.</h2><p>Tools built to solve real operational problems.</p></div><div class="project-grid">
+<article class="project reveal"><div class="projecttop"><div class="project-icon">⌁</div><span class="number">PROJECT / 01</span></div><h3>Fingerprint Device Sync Platform</h3><p>A Flask-based platform to manage ZKTeco devices and transfer fingerprint templates remotely, reducing branch-by-branch enrollment visits.</p><div class="tags"><span>Python</span><span>Flask</span><span>ZKTeco SDK</span><span>Active Directory</span></div></article>
+<article class="project reveal"><div class="projecttop"><div class="project-icon">▤</div><span class="number">PROJECT / 02</span></div><h3>IT Assets & Ticketing Tracker</h3><p>A central place for support requests and hardware records, with email-to-ticket classification and Snipe-IT integration.</p><div class="tags"><span>Python</span><span>Flask</span><span>Snipe-IT API</span><span>Automation</span></div></article>
+<article class="project reveal"><div class="projecttop"><div class="project-icon">◷</div><span class="number">PROJECT / 03</span></div><h3>DVR / NVR Time Sync Tool</h3><p>A one-action utility that synchronizes recorder clocks through the Hikvision ISAPI, replacing repetitive manual configuration.</p><div class="tags"><span>Hikvision ISAPI</span><span>REST</span><span>Python</span></div></article>
+<article class="project reveal"><div class="projecttop"><div class="project-icon">⌘</div><span class="number">PROJECT / 04</span></div><h3>Hardware Health & Inventory</h3><p>A PowerShell scan of domain-joined computers to collect disk-health and RAM specifications, helping IT make evidence-based upgrade decisions.</p><div class="tags"><span>PowerShell</span><span>CIM / WMI</span><span>Active Directory</span></div></article>
+</div></div></section>
+<section class="section" id="experience"><div class="wrap"><div class="sectionhead reveal"><div class="mini-label">03 / Career path</div><h2>Experience that keeps systems moving.</h2><p>IT operations, infrastructure, and hands-on support.</p></div><div class="timeline reveal"><div class="job"><time>JAN 2026 — PRESENT</time><h3>IT Systems Engineer <span>· IMTENAN Group</span></h3><p>Supporting Windows Server, Active Directory, VMware ESXi, branch infrastructure, and internal automation.</p></div><div class="job"><time>MAR 2022 — JAN 2026</time><h3>IT System & Network Engineer <span>· Fathallah Beit El Gomla</span></h3><p>Branch IT support, network connectivity, VPN infrastructure, troubleshooting, and operational support.</p></div><div class="job"><time>MAR 2021 — MAR 2022</time><h3>IT Specialist <span>· Carrefour Egypt</span></h3><p>On-site support for POS systems, store network connectivity, and day-to-day technical issues.</p></div><div class="job"><time>FEB 2020 — MAR 2021</time><h3>IT Support <span>· Military Service</span></h3><p>Day-to-day IT support in a structured environment.</p></div></div></div></section>
+<section class="section" id="contact"><div class="wrap"><div class="contactbox reveal"><div><div class="mini-label">04 / Get in touch</div><h2>Have a challenge to solve?</h2><p>Let's talk infrastructure, automation, or the next opportunity.</p><div style="margin-top:20px"><a class="btn primary" href="mailto:eslam.abbas.jobs@gmail.com">Start a conversation ↗</a></div></div><div class="contactlinks"><a href="mailto:eslam.abbas.jobs@gmail.com">✉ eslam.abbas.jobs@gmail.com</a><a href="tel:+201004802080">☎ +20 100 480 2080</a><a href="https://linkedin.com/in/eslam-abbas" target="_blank" rel="noopener">in linkedin.com/in/eslam-abbas</a></div></div></div></section>
+</main><footer><div class="wrap footerin"><span>© 2026 Eslam Abbas · Designed to make an impression.</span><a href="#home">Back to top ↑</a></div></footer>
 <script>
-const menuBtn=document.getElementById('menuBtn'),nav=document.getElementById('navlinks');
-menuBtn.addEventListener('click',()=>nav.classList.toggle('open'));
-nav.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>nav.classList.remove('open')));
-const observer=new IntersectionObserver(entries=>entries.forEach(entry=>{if(entry.isIntersecting){entry.target.classList.add('visible');observer.unobserve(entry.target)}}),{threshold:.12});
-document.querySelectorAll('.reveal').forEach(el=>observer.observe(el));
+(function(){
+ const btn=document.getElementById('menuBtn'),menu=document.getElementById('mobileMenu');
+ btn.addEventListener('click',function(){const open=menu.classList.toggle('open');btn.setAttribute('aria-expanded',open?'true':'false');btn.textContent=open?'×':'☰'});
+ menu.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>{menu.classList.remove('open');btn.setAttribute('aria-expanded','false');btn.textContent='☰'}));
+ const items=document.querySelectorAll('.reveal');
+ if('IntersectionObserver' in window){const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('visible');io.unobserve(e.target)}}),{threshold:.08});items.forEach(x=>io.observe(x))}else items.forEach(x=>x.classList.add('visible'));
+})();
 </script>
-</body>
-</html>
+</body></html>
