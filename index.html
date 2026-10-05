@@ -121,6 +121,14 @@ section{position:relative;z-index:1;max-width:78rem;margin:0 auto;padding:5.5rem
 .proj-watch{margin-top:1.1rem;background:none;border:1px solid var(--line);color:var(--text);border-radius:2rem;padding:.6rem 1.2rem;font-size:.8rem;font-weight:600;transition:all .2s}
 .proj-watch:hover{border-color:var(--gold);color:var(--gold);background:var(--soft)}
 
+.infra-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.2rem}
+.infra-grid .proj-card{padding:1.6rem}
+.infra-grid h3{font-size:1.05rem}
+.path{display:flex;flex-wrap:wrap;align-items:center;gap:.35rem;margin-top:1.1rem;font-size:.68rem;font-weight:600}
+.path span{background:var(--soft);color:var(--gold2);border-radius:2rem;padding:.3rem .65rem}
+.path span:first-child{background:none;border:1px dashed var(--line);color:var(--muted)}
+.path i{color:var(--gold);font-style:normal}
+.sg .chips{margin-top:1.2rem;gap:.5rem}.sg .chips span{font-size:.78rem;padding:.4rem .9rem;border:1px solid transparent;transition:border-color .2s,transform .2s}.sg .chips span:hover{border-color:var(--gold);transform:translateY(-2px)}
 .timeline{position:relative;padding-left:2.2rem}
 .timeline::before,.tl-fill{content:'';position:absolute;left:0;top:0;width:2px;background:var(--line);height:100%}
 .tl-fill{background:linear-gradient(var(--gold),var(--gold2));height:0;box-shadow:0 0 .8rem var(--gold)}
@@ -155,7 +163,7 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--gold);outline-offse
 
 <nav>
   <div class="brand"><div class="brand-mark">&lt;/&gt;</div><div><b>Eslam <span>Abbas</span></b><small>IT SYSTEMS ENGINEER</small></div></div>
-  <div class="nav-links"><a href="#home" class="active">Home</a><a href="#about">About</a><a href="#skills">Skills</a><a href="#projects">Projects</a><a href="#experience">Experience</a><a href="#contact">Contact</a></div>
+  <div class="nav-links"><a href="#home" class="active">Home</a><a href="#about">About</a><a href="#projects">Projects</a><a href="#skills">Skills</a><a href="#experience">Experience</a><a href="#contact">Contact</a></div>
   <a class="nav-cta" href="Eslam_Abbas_CV.pdf" download>↓ <i>Download </i>CV</a>
 </nav>
 
@@ -207,19 +215,7 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--gold);outline-offse
         <div class="trait"><svg viewBox="0 0 24 24"><circle cx="9" cy="8" r="3.2"/><path d="M2.5 20c0-3.5 2.9-6 6.5-6s6.5 2.5 6.5 6"/><circle cx="17.5" cy="9" r="2.4"/><path d="M15.8 14c2.8.3 4.7 2.2 4.7 5"/></svg>Team Player</div>
       </div>
     </div>
-    <div class="console"><div class="console-bar"><i></i><i></i><i></i><span>automation.log</span></div><div id="log"></div></div>
-  </div>
-
-  <div class="skills-list" id="skills">
-    <h3>MY SKILLS</h3>
-    <div class="skill-grid">
-      <div class="skill-badge"><svg viewBox="0 0 24 24"><rect x="3" y="3" width="8" height="8" rx="1"/><rect x="13" y="3" width="8" height="8" rx="1"/><rect x="3" y="13" width="8" height="8" rx="1"/><rect x="13" y="13" width="8" height="8" rx="1"/></svg>Windows Server &amp; AD</div>
-      <div class="skill-badge"><svg viewBox="0 0 24 24"><circle cx="6" cy="6" r="2.4"/><circle cx="18" cy="6" r="2.4"/><circle cx="12" cy="18" r="2.4"/><path d="M8 7l3 9M16 7l-3 9"/></svg>Networking</div>
-      <div class="skill-badge"><svg viewBox="0 0 24 24"><path d="M12 2 3 6v6c0 5 4 9 9 10 5-1 9-5 9-10V6l-9-4z"/></svg>FortiGate &amp; Sophos VPN</div>
-      <div class="skill-badge"><svg viewBox="0 0 24 24"><rect x="2" y="4" width="20" height="14" rx="2"/><path d="M8 20h8M12 18v2"/></svg>VMware ESXi</div>
-      <div class="skill-badge"><svg viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="14" rx="2"/><path d="M8 20h8"/></svg>Python &amp; Flask</div>
-      <div class="skill-badge"><svg viewBox="0 0 24 24"><path d="m8 9-5 3 5 3M16 9l5 3-5 3M13 5l-2 14"/></svg>PowerShell &amp; CIM/WMI</div>
-    </div>
+    <div class="console"><div class="console-bar"><i></i><i></i><i></i><span>day-to-day.log</span></div><div id="log"></div></div>
   </div>
 </section>
 
@@ -258,6 +254,56 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--gold);outline-offse
       <p class="proj-body">Deciding which machines needed a new drive or more memory relied on guesswork. I wrote a PowerShell script that scans every domain-joined machine for disk health and RAM specs — giving the team data instead of guesswork.</p>
       <div class="chips"><span>PowerShell</span><span>CIM/WMI</span><span>Active Directory</span></div>
       <button class="proj-watch" onclick="openVideo('hardware')">▶ Watch demo</button>
+    </div>
+  </div>
+</section>
+
+<section id="infra">
+  <div class="sec-eyebrow"><span class="ln"></span>INFRASTRUCTURE &amp; DEPLOYMENT</div>
+  <h2 class="sec-title">Other things I've <span class="gold">worked on</span></h2>
+  <div class="infra-grid">
+    <div class="proj-card">
+      <div class="proj-icon"><svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="12" rx="2"/><path d="M12 15v4M7 21h10M12 7v4M9.5 9l2.5 2.5L14.5 9"/></svg></div>
+      <h3>Windows Deployment over the Network</h3>
+      <div class="proj-sub">From USB sticks to booting straight from the network.</div>
+      <p class="proj-body">Installs used to mean a USB stick, then installing every program by hand on each machine. I moved this to network booting, first with WDS and then MDT, using captured images that already include the standard programs.</p>
+      <div class="path"><span>USB + manual</span><i>→</i><span>WDS</span><i>→</i><span>MDT</span><i>→</i><span>Captured images</span></div>
+    </div>
+    <div class="proj-card">
+      <div class="proj-icon"><svg viewBox="0 0 24 24"><rect x="2" y="4" width="20" height="13" rx="2"/><path d="M8 21h8M12 17v4M9 10h6"/></svg></div>
+      <h3>Remote Management with MeshCentral</h3>
+      <div class="proj-sub">Remote access to company machines.</div>
+      <p class="proj-body">Set up MeshCentral for remote access to devices, and used Group Policy to get the agent onto the machines automatically.</p>
+      <div class="chips"><span>MeshCentral</span><span>Group Policy</span><span>Active Directory</span></div>
+    </div>
+    <div class="proj-card">
+      <div class="proj-icon"><svg viewBox="0 0 24 24"><path d="M6 9V3h12v6M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2"/><rect x="6" y="14" width="12" height="7"/></svg></div>
+      <h3>Print Server with PaperCut</h3>
+      <div class="proj-sub">Printing managed from one place.</div>
+      <p class="proj-body">Set up a central print server using PaperCut.</p>
+      <div class="chips"><span>PaperCut</span><span>Print Server</span></div>
+    </div>
+  </div>
+</section>
+
+<section id="skills">
+  <div class="sec-eyebrow"><span class="ln"></span>SKILLS</div>
+  <h2 class="sec-title">What I <span class="gold">work with</span></h2>
+  <div class="infra-grid sg">
+    <div class="proj-card">
+      <div class="proj-icon"><svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="6" rx="1.5"/><rect x="3" y="11" width="18" height="6" rx="1.5"/><path d="M7 6h.01M7 14h.01M8 21h8"/></svg></div>
+      <h3>Servers &amp; Infrastructure</h3>
+      <div class="chips"><span>Windows Server</span><span>Active Directory</span><span>VMware ESXi</span><span>Group Policy</span><span>WDS</span><span>MDT</span><span>MeshCentral</span><span>PaperCut</span></div>
+    </div>
+    <div class="proj-card">
+      <div class="proj-icon"><svg viewBox="0 0 24 24"><path d="M12 2 3 6v6c0 5 4 9 9 10 5-1 9-5 9-10V6l-9-4z"/><path d="m9 12 2 2 4-4"/></svg></div>
+      <h3>Network &amp; Security</h3>
+      <div class="chips"><span>Networking</span><span>FortiGate</span><span>Sophos VPN</span></div>
+    </div>
+    <div class="proj-card">
+      <div class="proj-icon"><svg viewBox="0 0 24 24"><path d="m8 9-5 3 5 3M16 9l5 3-5 3M13 5l-2 14"/></svg></div>
+      <h3>Scripting &amp; Tools</h3>
+      <div class="chips"><span>Python</span><span>Flask</span><span>PowerShell</span><span>CIM/WMI</span><span>Snipe-IT</span><span>Hikvision ISAPI</span></div>
     </div>
   </div>
 </section>
@@ -320,11 +366,11 @@ let ci=0,ch=0,del=false;const ty=$('#ty');
   if(!del&&ch==s.length){del=true;t=1600}else if(del&&ch==0){del=false;ci=(ci+1)%cmds.length;t=300}setTimeout(type,t)})();
 
 /* --- marquee --- */
-const sk=['Windows Server','Active Directory','VMware ESXi','FortiGate','Sophos VPN','Networking','Python','Flask','PowerShell','CIM/WMI','Snipe-IT','Hikvision ISAPI'];
+const sk=['Windows Server','Active Directory','VMware ESXi','FortiGate','Sophos VPN','Networking','Python','Flask','PowerShell','CIM/WMI','Snipe-IT','Hikvision ISAPI','MeshCentral','Group Policy','WDS','MDT','PaperCut'];
 $('#mq').innerHTML=[...sk,...sk].map(s=>`<span>${s}</span>`).join('');
 
 /* --- automation log --- */
-const L=['<b>✓</b> <em>sync</em> fingerprint templates → all branches','<b>✓</b> <em>sync</em> DVR/NVR clocks → every device aligned','<b>✓</b> <em>scan</em> disk health + RAM → domain-wide report','<b>✓</b> <em>triage</em> incoming email → ticket created','<b>✓</b> <em>link</em> ticket → asset → user (Snipe-IT)','<b>✓</b> <em>vpn</em> branch tunnels → healthy'];
+const L=['<b>✓</b> <em>sync</em> fingerprint templates → all branches','<b>✓</b> <em>sync</em> DVR/NVR clocks → every device aligned','<b>✓</b> <em>scan</em> disk health + RAM → domain-wide report','<b>✓</b> <em>triage</em> incoming email → ticket created','<b>✓</b> <em>link</em> ticket → asset → user (Snipe-IT)','<b>✓</b> <em>vpn</em> branch tunnels → healthy','<b>✓</b> <em>pxe</em> boot from network → image applied','<b>✓</b> <em>gpo</em> MeshCentral agent → installed'];
 let li=0;const lg=$('#log');
 function addLog(){const p=document.createElement('p');p.innerHTML='<span style="opacity:.45">$ </span>'+L[li++%L.length];lg.appendChild(p);while(lg.children.length>7)lg.firstChild.remove()}
 addLog();setInterval(addLog,1700);
