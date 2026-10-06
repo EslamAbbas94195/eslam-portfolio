@@ -28,7 +28,8 @@ nav{position:sticky;top:0;z-index:40;display:flex;align-items:center;justify-con
 .nav-links a.active::after{content:'';position:absolute;left:0;right:0;bottom:-.1rem;height:.12rem;background:var(--gold);border-radius:2px}
 .nav-cta{background:var(--gold);color:#1A1206;font-weight:700;font-size:.85rem;padding:.7rem 1.25rem;border-radius:2rem;transition:transform .2s,box-shadow .2s}
 .nav-cta:hover{transform:translateY(-2px);box-shadow:0 .6rem 1.5rem rgba(238,168,62,.3)}
-@media(max-width:700px){.brand small,.nav-cta i{display:none}.nav-links{gap:1.1rem;font-size:.8rem}.nav-cta{padding:.6rem .9rem}}
+.nav-btns{display:flex;gap:.5rem}.nav-cta.ghost{background:none;color:var(--text);border:1.5px solid var(--line)}.nav-cta.ghost:hover{border-color:var(--gold);color:var(--gold);box-shadow:none}
+@media(max-width:700px){.brand small,.nav-cta i{display:none}.nav-links{gap:.9rem;font-size:.75rem}.nav-cta{padding:.55rem .75rem;font-size:.78rem}.nav-btns{gap:.35rem}}
 
 /* hero */
 .hero{position:relative;max-width:78rem;margin:0 auto;padding:4.5rem 4vw 3rem;display:grid;grid-template-columns:1.05fr .95fr;gap:2rem;align-items:center}
@@ -164,7 +165,7 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--gold);outline-offse
 <nav>
   <div class="brand"><div class="brand-mark">&lt;/&gt;</div><div><b>Eslam <span>Abbas</span></b><small>IT SYSTEMS ENGINEER</small></div></div>
   <div class="nav-links"><a href="#home" class="active">Home</a><a href="#about">About</a><a href="#projects">Projects</a><a href="#skills">Skills</a><a href="#experience">Experience</a><a href="#contact">Contact</a></div>
-  <a class="nav-cta" href="Eslam_Abbas_CV.pdf" download>↓ <i>Download </i>CV</a>
+  <div class="nav-btns"><a class="nav-cta ghost" href="Eslam_Abbas_CV.pdf" target="_blank" rel="noopener">◉ <i>View </i>CV</a><a class="nav-cta" href="Eslam_Abbas_CV.pdf" download aria-label="Download CV">↓ <i>Download</i></a></div>
 </nav>
 
 <header class="hero" id="home">
@@ -344,6 +345,7 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--gold);outline-offse
   <div class="contact-row">
     <a class="btn outline" href="tel:+201004802080">+20 100 480 2080</a>
     <a class="btn outline" href="https://www.linkedin.com/in/eslam-abbas-45b952209" target="_blank" rel="noopener">LinkedIn</a>
+    <a class="btn outline" href="Eslam_Abbas_CV.pdf" target="_blank" rel="noopener">◉ View CV</a>
     <a class="btn solid" href="Eslam_Abbas_CV.pdf" download>↓ Download CV</a>
   </div>
 </section>
