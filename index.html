@@ -1,0 +1,452 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Eslam Abbas — IT Systems Engineer</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@600;800&family=Plus+Jakarta+Sans:wght@400;500;600;700&family=Caveat:wght@600&display=swap" rel="stylesheet">
+<style>
+/* One scale for every screen: desktop layout is kept on phones, everything shrinks proportionally (1rem = 16px at 1240px+, never below 9px). */
+html{font-size:clamp(9px,1.3vw,16px);scroll-behavior:smooth}
+:root{--bg:#07090F;--panel:#101520;--gold:#EEA83E;--gold2:#FFD27A;--soft:rgba(238,168,62,.13);--text:#F4F1EA;--muted:#8F97A9;--line:rgba(238,168,62,.18);--ok:#4ADE9A}
+*{box-sizing:border-box;margin:0;padding:0}
+body{background:var(--bg);color:var(--text);font-family:'Plus Jakarta Sans',sans-serif;font-size:1rem;overflow-x:hidden}
+h1,h2,h3{font-family:'Bricolage Grotesque','Plus Jakarta Sans',sans-serif;font-weight:800;letter-spacing:-.02em}
+a{color:inherit;text-decoration:none}button{font-family:inherit;cursor:pointer}
+svg{flex:none}
+.progress{position:fixed;top:0;left:0;height:.2rem;width:0;background:linear-gradient(90deg,var(--gold),var(--gold2));z-index:100}
+
+nav{position:sticky;top:0;z-index:40;display:flex;align-items:center;justify-content:space-between;padding:1.1rem 4vw;background:rgba(7,9,15,.8);backdrop-filter:blur(12px);border-bottom:1px solid var(--line)}
+.brand{display:flex;align-items:center;gap:.7rem}
+.brand-mark{width:2.4rem;height:2.4rem;border-radius:.65rem;background:var(--soft);border:1px solid var(--line);display:flex;align-items:center;justify-content:center;color:var(--gold);font-weight:700;font-size:.85rem}
+.brand b{font-size:1rem;display:block;font-family:'Bricolage Grotesque'}.brand b span{color:var(--gold)}
+.brand small{color:var(--muted);font-size:.7rem;font-weight:500}
+.nav-links{display:flex;gap:1.9rem;font-size:.88rem;font-weight:600;color:var(--muted)}
+.nav-links a{position:relative;padding-bottom:.25rem;transition:color .2s}
+.nav-links a.active,.nav-links a:hover{color:var(--text)}
+.nav-links a.active::after{content:'';position:absolute;left:0;right:0;bottom:-.1rem;height:.12rem;background:var(--gold);border-radius:2px}
+.nav-cta{background:var(--gold);color:#1A1206;font-weight:700;font-size:.85rem;padding:.7rem 1.25rem;border-radius:2rem;transition:transform .2s,box-shadow .2s}
+.nav-cta:hover{transform:translateY(-2px);box-shadow:0 .6rem 1.5rem rgba(238,168,62,.3)}
+.nav-btns{display:flex;gap:.5rem}.nav-cta.ghost{background:none;color:var(--text);border:1.5px solid var(--line)}.nav-cta.ghost:hover{border-color:var(--gold);color:var(--gold);box-shadow:none}
+@media(max-width:700px){.brand small,.nav-cta.ghost i{display:none}.nav-links{gap:.75rem;font-size:.72rem}.nav-cta{padding:.55rem .7rem;font-size:.74rem}.nav-btns{gap:.35rem}}
+
+/* hero */
+.hero{position:relative;max-width:78rem;margin:0 auto;padding:4.5rem 4vw 3rem;display:grid;grid-template-columns:1.05fr .95fr;gap:2rem;align-items:center}
+#net{position:absolute;inset:0;width:100%;height:100%;z-index:0}
+.hero>*:not(canvas){position:relative;z-index:1}
+.eyebrow{display:flex;align-items:center;gap:.9rem;color:var(--gold);font-weight:600;font-size:.9rem;margin-bottom:1rem}
+.eyebrow .ln{width:2rem;height:1px;background:var(--gold);opacity:.6}
+.live{display:inline-flex;align-items:center;gap:.45rem;margin-left:.4rem;color:var(--ok);font-size:.75rem}
+.live::before{content:'';width:.45rem;height:.45rem;border-radius:50%;background:var(--ok);box-shadow:0 0 .7rem var(--ok);animation:pulse 1.8s infinite}
+@keyframes pulse{50%{opacity:.35}}
+.hero h1{font-size:5.4rem;line-height:.95;color:#fff}
+.hero h1 .gold{display:block;background:linear-gradient(100deg,var(--gold) 20%,#fff2cc 45%,var(--gold) 70%);background-size:220% 100%;-webkit-background-clip:text;background-clip:text;color:transparent;animation:shine 6s linear infinite}
+@keyframes shine{to{background-position:-220% 0}}
+.hero-role{font-size:1.7rem;color:var(--muted);font-weight:700;margin-top:.7rem;font-family:'Bricolage Grotesque'}
+.term{margin-top:1.2rem;display:inline-flex;align-items:center;gap:.6rem;background:rgba(16,21,32,.85);border:1px solid var(--line);border-radius:.7rem;padding:.65rem 1rem;font:500 .85rem/1 ui-monospace,Menlo,Consolas,monospace;color:var(--gold2);min-width:19rem}
+.term b{color:var(--ok)}.term::after{content:'';width:.5rem;height:1rem;background:var(--gold);animation:pulse 1s infinite}
+.hero-sub{margin-top:1.3rem;color:var(--muted);font-size:.98rem;line-height:1.8;max-width:34rem}
+.hero-cta{margin-top:1.8rem;display:flex;gap:.9rem;flex-wrap:wrap}
+.btn{display:inline-flex;align-items:center;gap:.55rem;font-weight:700;font-size:.9rem;padding:.9rem 1.6rem;border-radius:2rem;transition:all .2s}
+.btn.solid{background:var(--gold);color:#1A1206}.btn.solid:hover{transform:translateY(-2px);box-shadow:0 .6rem 1.6rem rgba(238,168,62,.3)}
+.btn.outline{border:1.5px solid var(--line)}.btn.outline:hover{border-color:var(--gold);color:var(--gold)}
+.hero-contact{margin-top:1.6rem;display:flex;gap:1.4rem;flex-wrap:wrap;font-size:.84rem;color:var(--muted)}
+.hero-contact span{display:flex;align-items:center;gap:.45rem}
+.hero-contact svg{width:1rem;height:1rem;stroke:var(--gold);fill:none;stroke-width:1.8}
+
+.hero-visual{position:relative;display:flex;justify-content:center;align-items:center;min-height:28rem}
+.ring{position:absolute;border-radius:50%;border:1px solid var(--line)}
+.r1{width:21rem;height:21rem;animation:spin 40s linear infinite}
+.r2{width:25.5rem;height:25.5rem;border-style:dashed;opacity:.5;animation:spin 70s linear infinite reverse}
+.ring::before{content:'';position:absolute;top:-.2rem;left:50%;width:.4rem;height:.4rem;background:var(--gold);border-radius:50%;box-shadow:0 0 1rem var(--gold)}
+@keyframes spin{to{transform:rotate(360deg)}}
+.glow{position:absolute;width:19rem;height:19rem;border-radius:50%;background:radial-gradient(circle,rgba(238,168,62,.3),transparent 70%);filter:blur(1.2rem)}
+.hero-photo{position:relative;width:17.5rem;height:21rem;border-radius:9rem 9rem 1.3rem 1.3rem;overflow:hidden;border:1px solid var(--line);box-shadow:0 2rem 4rem rgba(0,0,0,.55);z-index:2;transition:transform .15s}
+.hero-photo img{width:100%;height:100%;object-fit:cover;object-position:center 22%;display:block;filter:contrast(1.06) saturate(1.05)}
+.hero-photo::after{content:'';position:absolute;inset:0;background:linear-gradient(180deg,transparent 60%,rgba(7,9,15,.55))}
+.badge{position:absolute;display:flex;align-items:center;gap:.5rem;background:var(--panel);border:1px solid var(--line);border-radius:.8rem;padding:.6rem .85rem;font-size:.78rem;font-weight:600;box-shadow:0 .7rem 1.5rem rgba(0,0,0,.4);animation:floaty 5s ease-in-out infinite;z-index:3}
+.badge svg{width:1rem;height:1rem;stroke:var(--gold);fill:none;stroke-width:1.8}
+.b1{top:2%;right:-2%}.b2{top:28%;left:-6%;animation-delay:.6s}.b3{top:60%;right:-8%;animation-delay:1.2s}.b4{bottom:6%;left:-2%;animation-delay:1.8s}
+@keyframes floaty{50%{transform:translateY(-.6rem)}}
+.tag{position:absolute;bottom:-.3rem;right:0;font-family:'Caveat',cursive;color:var(--gold);font-size:1.5rem;line-height:1.1;text-align:right;z-index:3}
+.badge-row{display:none}
+.badge-row .badge-static{display:flex;align-items:center;gap:.5rem;background:var(--panel);border:1px solid var(--line);border-radius:.8rem;padding:.6rem .85rem;font-size:.78rem;font-weight:600;box-shadow:0 .5rem 1.2rem rgba(0,0,0,.35)}
+.badge-row .badge-static svg{width:1rem;height:1rem;stroke:var(--gold);fill:none;stroke-width:1.8}
+
+/* marquee */
+.marq{position:relative;z-index:1;border-block:1px solid var(--line);background:rgba(16,21,32,.6);overflow:hidden;padding:1rem 0}
+.marq div{display:flex;gap:3rem;width:max-content;animation:mq 32s linear infinite;font:700 1rem 'Bricolage Grotesque';color:var(--muted)}
+.marq span::after{content:'◆';color:var(--gold);margin-left:3rem;font-size:.6rem}
+@keyframes mq{to{transform:translateX(-50%)}}
+
+section{position:relative;z-index:1;max-width:78rem;margin:0 auto;padding:5.5rem 4vw}
+.sec-eyebrow{display:flex;align-items:center;gap:.8rem;color:var(--gold);font-weight:700;font-size:.8rem;letter-spacing:.05em;margin-bottom:.9rem}
+.sec-eyebrow .ln{width:1.7rem;height:1px;background:var(--gold)}
+.sec-title{font-size:2.5rem;line-height:1.1;color:#fff;margin-bottom:2.8rem;max-width:20ch}
+.sec-title .gold{color:var(--gold)}
+
+.stats{display:grid;grid-template-columns:repeat(4,1fr);gap:1rem}
+.stat{background:var(--panel);border:1px solid var(--line);border-radius:1.1rem;padding:1.8rem 1rem;text-align:center;position:relative;overflow:hidden}
+.stat::before{content:'';position:absolute;left:0;right:0;top:0;height:.18rem;background:linear-gradient(90deg,transparent,var(--gold),transparent)}
+.stat .num{font:800 2.6rem 'Bricolage Grotesque';color:var(--gold)}
+.stat .lbl{margin-top:.4rem;font-size:.72rem;color:var(--muted);font-weight:600}
+
+.about{display:grid;grid-template-columns:1fr 1fr;gap:3rem;align-items:start}
+.about-body{color:var(--muted);font-size:.92rem;line-height:1.85;max-width:34rem}
+.trait-row{display:flex;gap:.8rem;margin-top:1.6rem;flex-wrap:wrap}
+.trait{display:flex;align-items:center;gap:.6rem;background:var(--panel);border:1px solid var(--line);border-radius:.9rem;padding:.75rem 1rem;font-size:.8rem;font-weight:600}
+.trait svg{width:1.1rem;height:1.1rem;stroke:var(--gold);fill:none;stroke-width:1.8}
+.console{background:#0A0E16;border:1px solid var(--line);border-radius:1rem;box-shadow:0 1.8rem 3.5rem rgba(0,0,0,.45);overflow:hidden}
+.console-bar{display:flex;gap:.4rem;padding:.8rem 1rem;border-bottom:1px solid var(--line);align-items:center;font-size:.7rem;color:var(--muted)}
+.console-bar i{width:.6rem;height:.6rem;border-radius:50%;background:var(--line)}.console-bar i:first-child{background:var(--gold)}
+.console-bar span{margin-left:.5rem}
+#log{padding:1.1rem 1.2rem;height:14rem;overflow:hidden;font:500 .8rem/1.9 ui-monospace,Menlo,Consolas,monospace;color:var(--muted)}
+#log p{animation:in .4s}#log b{color:var(--ok)}#log em{color:var(--gold2);font-style:normal}
+@keyframes in{from{opacity:0;transform:translateX(-.6rem)}}
+
+.skills-list{margin-top:3rem}
+.skills-list h3{font-size:.85rem;color:var(--gold);letter-spacing:.08em;margin-bottom:1rem}
+.skill-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:.7rem}
+.skill-badge{display:flex;align-items:center;gap:.65rem;background:var(--panel);border:1px solid var(--line);border-radius:.8rem;padding:.85rem 1rem;font-size:.82rem;font-weight:600;transition:border-color .2s,transform .2s}
+.skill-badge:hover{border-color:var(--gold);transform:translateY(-2px)}
+.skill-badge svg{width:1.1rem;height:1.1rem;stroke:var(--gold);fill:none;stroke-width:1.8}
+
+.proj-grid{display:grid;grid-template-columns:1fr 1fr;gap:1.2rem}
+.proj-card{--x:50%;--y:0%;position:relative;background:radial-gradient(22rem circle at var(--x) var(--y),rgba(238,168,62,.14),transparent 55%),var(--panel);border:1px solid var(--line);border-radius:1.3rem;padding:1.9rem;transition:border-color .25s,transform .25s}
+.proj-card:hover{border-color:var(--gold);transform:translateY(-.25rem)}
+.proj-icon{width:2.9rem;height:2.9rem;border-radius:.8rem;background:var(--soft);display:flex;align-items:center;justify-content:center;margin-bottom:1rem}
+.proj-icon svg{width:1.4rem;height:1.4rem;stroke:var(--gold);fill:none;stroke-width:1.7}
+.proj-card h3{font-size:1.2rem;color:#fff}
+.proj-sub{color:var(--gold);font-size:.84rem;margin-top:.5rem;font-weight:600}
+.proj-body{color:var(--muted);font-size:.84rem;line-height:1.75;margin-top:.8rem}
+.chips{display:flex;flex-wrap:wrap;gap:.4rem;margin-top:1.1rem}
+.chips span{font-size:.68rem;font-weight:600;color:var(--gold2);background:var(--soft);border-radius:2rem;padding:.3rem .7rem}
+.proj-watch{margin-top:1.1rem;background:none;border:1px solid var(--line);color:var(--text);border-radius:2rem;padding:.6rem 1.2rem;font-size:.8rem;font-weight:600;transition:all .2s}
+.proj-watch:hover{border-color:var(--gold);color:var(--gold);background:var(--soft)}
+
+.infra-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.2rem}
+.infra-grid .proj-card{padding:1.6rem}
+.infra-grid h3{font-size:1.05rem}
+.path{display:flex;flex-wrap:wrap;align-items:center;gap:.35rem;margin-top:1.1rem;font-size:.68rem;font-weight:600}
+.path span{background:var(--soft);color:var(--gold2);border-radius:2rem;padding:.3rem .65rem}
+.path span:first-child{background:none;border:1px dashed var(--line);color:var(--muted)}
+.path i{color:var(--gold);font-style:normal}
+.sg .chips{margin-top:1.2rem;gap:.5rem}.sg .chips span{font-size:.78rem;padding:.4rem .9rem;border:1px solid transparent;transition:border-color .2s,transform .2s}.sg .chips span:hover{border-color:var(--gold);transform:translateY(-2px)}
+.timeline{position:relative;padding-left:2.2rem}
+.timeline::before,.tl-fill{content:'';position:absolute;left:0;top:0;width:2px;background:var(--line);height:100%}
+.tl-fill{background:linear-gradient(var(--gold),var(--gold2));height:0;box-shadow:0 0 .8rem var(--gold)}
+.t-item{position:relative;padding-bottom:2.6rem}.t-item:last-child{padding-bottom:0}
+.t-item::before{content:'';position:absolute;left:-2.7rem;top:.25rem;width:.8rem;height:.8rem;border-radius:50%;background:var(--bg);border:2px solid var(--gold);box-shadow:0 0 0 .25rem var(--soft)}
+.t-item:first-child::before{background:var(--gold)}
+.t-dates{font-size:.8rem;color:var(--gold);font-weight:700}
+.t-role{font:700 1.2rem 'Bricolage Grotesque';color:#fff;margin-top:.5rem}
+.t-org{color:var(--muted);font-size:.88rem;margin-top:.2rem;font-weight:500}
+.t-desc{color:var(--muted);font-size:.86rem;line-height:1.7;margin-top:.5rem;max-width:36rem}
+
+.contact-wrap{text-align:center}
+.big-mail{display:inline-block;font:800 3.2rem/1.1 'Bricolage Grotesque';color:#fff;background:linear-gradient(var(--gold),var(--gold)) 0 100%/0 .15rem no-repeat;transition:background-size .4s,color .3s;padding-bottom:.4rem}
+.big-mail:hover{background-size:100% .15rem;color:var(--gold2)}
+.contact-row{display:flex;gap:.9rem;flex-wrap:wrap;justify-content:center;margin-top:2.4rem}
+footer{text-align:center;padding:2.2rem 1rem;color:var(--muted);font-size:.8rem;border-top:1px solid var(--line);position:relative;z-index:1}
+
+.video-modal-overlay{display:none;position:fixed;inset:0;background:rgba(5,6,10,.92);z-index:90;align-items:center;justify-content:center;padding:1.2rem}
+.video-modal-overlay.open{display:flex}
+.video-modal{width:100%;max-width:52rem;background:var(--panel);border:1px solid var(--line);border-radius:1rem;overflow:hidden}
+.video-modal-head{display:flex;justify-content:space-between;padding:.9rem 1.1rem;border-bottom:1px solid var(--line);font-size:.85rem;font-weight:600}
+.video-modal-close{background:none;border:none;color:var(--muted);font-size:1.5rem}
+.video-modal-body{aspect-ratio:16/9;background:#000}
+.video-modal-body iframe{width:100%;height:100%;border:0}
+.soon{width:100%;height:100%;display:flex;align-items:center;justify-content:center;color:var(--muted)}
+a:focus-visible,button:focus-visible{outline:2px solid var(--gold);outline-offset:3px}
+
+/* mobile: stop scaling alone from doing the work — actually reflow the layout */
+@media(max-width:900px){
+  .hero{grid-template-columns:1fr;text-align:center;padding-top:3rem;gap:2.2rem}
+  .eyebrow,.hero-cta,.hero-contact{justify-content:center}
+  .term,.hero-sub{margin-left:auto;margin-right:auto}
+  .hero-visual{order:-1;min-height:0;margin-bottom:.5rem;flex-direction:column}
+  .badge{display:none}
+  .tag{position:static;text-align:center;margin-top:1.1rem}
+  .badge-row{display:flex;flex-wrap:wrap;gap:.6rem;justify-content:center;margin-top:1.3rem;max-width:26rem}
+
+  .about{grid-template-columns:1fr;gap:2.2rem}
+  .about-body,.trait-row{margin-left:auto;margin-right:auto}
+  .console{max-width:34rem;margin:0 auto;width:100%}
+
+  .proj-grid,.infra-grid{grid-template-columns:1fr}
+  .skill-grid{grid-template-columns:1fr 1fr}
+
+  .stats{grid-template-columns:repeat(2,1fr)}
+
+  .sec-title{max-width:none}
+}
+@media(max-width:420px){.stats{grid-template-columns:1fr 1fr;gap:.7rem}.big-mail{font-size:2.1rem}}
+@media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
+</style>
+</head>
+<body>
+<div class="progress" id="pg"></div>
+
+<nav>
+  <div class="brand"><div class="brand-mark">&lt;/&gt;</div><div><b>Eslam <span>Abbas</span></b><small>IT SYSTEMS ENGINEER</small></div></div>
+  <div class="nav-links"><a href="#home" class="active">Home</a><a href="#projects">Projects</a><a href="#skills">Skills</a><a href="#experience">Experience</a><a href="#contact">Contact</a></div>
+  <div class="nav-btns"><a class="nav-cta ghost" href="Eslam_Abbas_CV.pdf" target="_blank" rel="noopener">◉ <i>View </i>CV</a><a class="nav-cta" href="Eslam_Abbas_CV.pdf" download aria-label="Download CV">↓ <i>Download CV</i></a></div>
+</nav>
+
+<header class="hero" id="home">
+  <canvas id="net"></canvas>
+  <div>
+    <div class="eyebrow"><span class="ln"></span>Hello, I'm<span class="live">all systems online</span></div>
+    <h1>Eslam <span class="gold">Abbas</span></h1>
+    <div class="hero-role">IT Systems Engineer</div>
+    <div class="term"><b>$</b><span id="ty"></span></div>
+    <p class="hero-sub">I build and maintain reliable IT systems, solve complex problems, and keep things running smoothly — then quietly automate whatever shouldn't have been manual in the first place.</p>
+    <div class="hero-cta"><a class="btn solid" href="#projects">◎ View My Work</a><a class="btn outline" href="#contact">✉ Get In Touch</a></div>
+    <div class="hero-contact">
+      <span><svg viewBox="0 0 24 24"><path d="M12 21s7-6.5 7-12a7 7 0 1 0-14 0c0 5.5 7 12 7 12z"/><circle cx="12" cy="9" r="2.5"/></svg>Cairo, Egypt</span>
+      <span><svg viewBox="0 0 24 24"><path d="M4 4h16v16H4z"/><path d="m4 5 8 7 8-7"/></svg>eslam.abbas.jobs@gmail.com</span>
+    </div>
+  </div>
+  <div class="hero-visual">
+    <div class="glow"></div><div class="ring r2"></div><div class="ring r1"></div>
+    <div class="hero-photo" id="ph"><img src="profile.jpg" alt="Eslam Abbas"></div>
+    <div class="badge b1"><svg viewBox="0 0 24 24"><circle cx="6" cy="6" r="2.4"/><circle cx="18" cy="6" r="2.4"/><circle cx="12" cy="18" r="2.4"/><path d="M8 7l3 9M16 7l-3 9"/></svg>Networking</div>
+    <div class="badge b2"><svg viewBox="0 0 24 24"><rect x="3" y="3" width="8" height="8" rx="1"/><rect x="13" y="3" width="8" height="8" rx="1"/><rect x="3" y="13" width="8" height="8" rx="1"/><rect x="13" y="13" width="8" height="8" rx="1"/></svg>Windows Server</div>
+    <div class="badge b3"><svg viewBox="0 0 24 24"><path d="M12 2 3 6v6c0 5 4 9 9 10 5-1 9-5 9-10V6l-9-4z"/></svg>FortiGate</div>
+    <div class="badge b4"><svg viewBox="0 0 24 24"><circle cx="12" cy="7" r="3"/><path d="M5 21c0-4 3-6 7-6s7 2 7 6"/></svg>Active Directory</div>
+    <div class="tag">Better Systems,<br>Bigger Possibilities.</div>
+    <div class="badge-row">
+      <div class="badge-static"><svg viewBox="0 0 24 24"><circle cx="6" cy="6" r="2.4"/><circle cx="18" cy="6" r="2.4"/><circle cx="12" cy="18" r="2.4"/><path d="M8 7l3 9M16 7l-3 9"/></svg>Networking</div>
+      <div class="badge-static"><svg viewBox="0 0 24 24"><rect x="3" y="3" width="8" height="8" rx="1"/><rect x="13" y="3" width="8" height="8" rx="1"/><rect x="3" y="13" width="8" height="8" rx="1"/><rect x="13" y="13" width="8" height="8" rx="1"/></svg>Windows Server</div>
+      <div class="badge-static"><svg viewBox="0 0 24 24"><path d="M12 2 3 6v6c0 5 4 9 9 10 5-1 9-5 9-10V6l-9-4z"/></svg>FortiGate</div>
+      <div class="badge-static"><svg viewBox="0 0 24 24"><circle cx="12" cy="7" r="3"/><path d="M5 21c0-4 3-6 7-6s7 2 7 6"/></svg>Active Directory</div>
+    </div>
+  </div>
+</header>
+
+<div class="marq"><div id="mq"></div></div>
+
+<section>
+  <div class="stats">
+    <div class="stat"><div class="num" data-n="5" data-s="+">0</div><div class="lbl">YEARS IN ENTERPRISE IT</div></div>
+    <div class="stat"><div class="num" data-n="4" data-s="">0</div><div class="lbl">SYSTEMS BUILT</div></div>
+    <div class="stat"><div class="num" data-n="10" data-s="+">0</div><div class="lbl">BRANCHES SUPPORTED</div></div>
+    <div class="stat"><div class="num" data-n="150" data-s="+">0</div><div class="lbl">TICKETS RESOLVED / MONTH</div></div>
+  </div>
+</section>
+
+<section id="about">
+  <div class="about">
+    <div>
+      <div class="sec-eyebrow"><span class="ln"></span>ABOUT ME</div>
+      <h2 class="sec-title">Turning IT challenges into <span class="gold">smart solutions</span></h2>
+      <p class="about-body">I'm an IT Systems Engineer with 5+ years managing enterprise infrastructure — Windows Server, Active Directory, VMware ESXi, and firewall/VPN configuration. What sets the work apart is a habit of noticing operational friction and quietly automating it: four internal systems now run what used to be manual, per-branch routines.</p>
+      <div class="trait-row">
+        <div class="trait"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="3"/><path d="M12 2v3M12 19v3M2 12h3M19 12h3M5 5l2 2M17 17l2 2M19 5l-2 2M7 17l-2 2"/></svg>Problem Solver</div>
+        <div class="trait"><svg viewBox="0 0 24 24"><path d="M12 2v4M12 18v4M4.9 4.9l2.8 2.8M16.3 16.3l2.8 2.8M2 12h4M18 12h4M4.9 19.1l2.8-2.8M16.3 7.7l2.8-2.8"/></svg>Quick Learner</div>
+        <div class="trait"><svg viewBox="0 0 24 24"><circle cx="9" cy="8" r="3.2"/><path d="M2.5 20c0-3.5 2.9-6 6.5-6s6.5 2.5 6.5 6"/><circle cx="17.5" cy="9" r="2.4"/><path d="M15.8 14c2.8.3 4.7 2.2 4.7 5"/></svg>Team Player</div>
+      </div>
+    </div>
+    <div class="console"><div class="console-bar"><i></i><i></i><i></i><span>day-to-day.log</span></div><div id="log"></div></div>
+  </div>
+</section>
+
+<section id="projects">
+  <div class="sec-eyebrow"><span class="ln"></span>FEATURED PROJECTS</div>
+  <h2 class="sec-title">Systems I've <span class="gold">built</span></h2>
+  <div class="proj-grid">
+    <div class="proj-card">
+      <div class="proj-icon"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="3"/><path d="M12 3v3M12 18v3M3 12h3M18 12h3M5.6 5.6l2.1 2.1M16.3 16.3l2.1 2.1M18.4 5.6l-2.1 2.1M7.7 16.3l-2.1 2.1"/></svg></div>
+      <h3>Fingerprint Device Sync Platform</h3>
+      <div class="proj-sub">Remote fingerprint-template transfer across every branch, from one dashboard.</div>
+      <p class="proj-body">Every new hire needed a physical enrollment visit to their branch's fingerprint device. I built a Flask-based platform that manages every ZKTeco device from a single dashboard — eliminating on-site enrollment visits company-wide.</p>
+      <div class="chips"><span>Python</span><span>Flask</span><span>ZKTeco SDK</span><span>Active Directory</span></div>
+      <button class="proj-watch" onclick="openVideo('fingerprint')">▶ Watch demo</button>
+    </div>
+    <div class="proj-card">
+      <div class="proj-icon"><svg viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="14" rx="2"/><path d="M8 20h8M7 9h10M7 13h6"/></svg></div>
+      <h3>IT Assets &amp; Ticketing Tracker</h3>
+      <div class="proj-sub">A central record for hardware, licenses, and every support ticket.</div>
+      <p class="proj-body">IT requests arrived as scattered emails with no history tied to the asset or user. I built a tracker with automatic email-to-ticket classification and Snipe-IT integration — centralizing every request and asset record.</p>
+      <div class="chips"><span>Python</span><span>Flask</span><span>Snipe-IT API</span><span>Active Directory</span></div>
+      <button class="proj-watch" onclick="openVideo('tracker')">▶ Watch demo</button>
+    </div>
+    <div class="proj-card">
+      <div class="proj-icon"><svg viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="12" rx="2"/><circle cx="12" cy="11" r="2.6"/><path d="M8 20h8"/></svg></div>
+      <h3>DVR/NVR Time Sync Tool</h3>
+      <div class="proj-sub">One click, and every recorder's clock agrees.</div>
+      <p class="proj-body">Each recorder's clock had to be corrected by hand, one device at a time. I built a tool using the Hikvision ISAPI to sync every device's clock in a single action — replacing per-device manual configuration.</p>
+      <div class="chips"><span>Python</span><span>Hikvision ISAPI</span><span>REST</span></div>
+      <button class="proj-watch" onclick="openVideo('dvrnvr')">▶ Watch demo</button>
+    </div>
+    <div class="proj-card">
+      <div class="proj-icon"><svg viewBox="0 0 24 24"><rect x="2" y="4" width="20" height="14" rx="2"/><path d="M8 20h8M12 18v2M7 10l2 2-2 2M13 14h4"/></svg></div>
+      <h3>Hardware Health &amp; Inventory Automation</h3>
+      <div class="proj-sub">A domain-wide scan that turns guesswork into a decision.</div>
+      <p class="proj-body">Deciding which machines needed a new drive or more memory relied on guesswork. I wrote a PowerShell script that scans every domain-joined machine for disk health and RAM specs — giving the team data instead of guesswork.</p>
+      <div class="chips"><span>PowerShell</span><span>CIM/WMI</span><span>Active Directory</span></div>
+      <button class="proj-watch" onclick="openVideo('hardware')">▶ Watch demo</button>
+    </div>
+  </div>
+</section>
+
+<section id="infra">
+  <div class="sec-eyebrow"><span class="ln"></span>INFRASTRUCTURE &amp; DEPLOYMENT</div>
+  <h2 class="sec-title">Other things I've <span class="gold">worked on</span></h2>
+  <div class="infra-grid">
+    <div class="proj-card">
+      <div class="proj-icon"><svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="12" rx="2"/><path d="M12 15v4M7 21h10M12 7v4M9.5 9l2.5 2.5L14.5 9"/></svg></div>
+      <h3>Windows Deployment over the Network</h3>
+      <div class="proj-sub">From USB sticks to booting straight from the network.</div>
+      <p class="proj-body">Installs used to mean a USB stick, then installing every program by hand on each machine. I moved this to network booting, first with WDS and then MDT, using captured images that already include the standard programs.</p>
+      <div class="path"><span>USB + manual</span><i>→</i><span>WDS</span><i>→</i><span>MDT</span><i>→</i><span>Captured images</span></div>
+    </div>
+    <div class="proj-card">
+      <div class="proj-icon"><svg viewBox="0 0 24 24"><rect x="2" y="4" width="20" height="13" rx="2"/><path d="M8 21h8M12 17v4M9 10h6"/></svg></div>
+      <h3>Remote Management with MeshCentral</h3>
+      <div class="proj-sub">Remote access to company machines.</div>
+      <p class="proj-body">Set up MeshCentral for remote access to devices, and used Group Policy to get the agent onto the machines automatically.</p>
+      <div class="chips"><span>MeshCentral</span><span>Group Policy</span><span>Active Directory</span></div>
+    </div>
+    <div class="proj-card">
+      <div class="proj-icon"><svg viewBox="0 0 24 24"><path d="M6 9V3h12v6M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2"/><rect x="6" y="14" width="12" height="7"/></svg></div>
+      <h3>Print Server with PaperCut</h3>
+      <div class="proj-sub">Printing managed from one place.</div>
+      <p class="proj-body">Set up a central print server using PaperCut.</p>
+      <div class="chips"><span>PaperCut</span><span>Print Server</span></div>
+    </div>
+  </div>
+</section>
+
+<section id="skills">
+  <div class="sec-eyebrow"><span class="ln"></span>SKILLS</div>
+  <h2 class="sec-title">What I <span class="gold">work with</span></h2>
+  <div class="infra-grid sg">
+    <div class="proj-card">
+      <div class="proj-icon"><svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="6" rx="1.5"/><rect x="3" y="11" width="18" height="6" rx="1.5"/><path d="M7 6h.01M7 14h.01M8 21h8"/></svg></div>
+      <h3>Servers &amp; Infrastructure</h3>
+      <div class="chips"><span>Windows Server</span><span>Active Directory</span><span>VMware ESXi</span><span>Group Policy</span><span>DNS &amp; DHCP</span><span>PRTG</span><span>WDS</span><span>MDT</span><span>MeshCentral</span><span>PaperCut</span></div>
+    </div>
+    <div class="proj-card">
+      <div class="proj-icon"><svg viewBox="0 0 24 24"><path d="M12 2 3 6v6c0 5 4 9 9 10 5-1 9-5 9-10V6l-9-4z"/><path d="m9 12 2 2 4-4"/></svg></div>
+      <h3>Network &amp; Security</h3>
+      <div class="chips"><span>Networking</span><span>FortiGate</span><span>Site-to-Site VPN</span><span>IP Cameras &amp; CCTV</span></div>
+    </div>
+    <div class="proj-card">
+      <div class="proj-icon"><svg viewBox="0 0 24 24"><path d="m8 9-5 3 5 3M16 9l5 3-5 3M13 5l-2 14"/></svg></div>
+      <h3>Scripting &amp; Tools</h3>
+      <div class="chips"><span>Python</span><span>Flask</span><span>REST APIs</span><span>PowerShell</span><span>CIM/WMI</span><span>Snipe-IT</span><span>Hikvision ISAPI</span></div>
+    </div>
+  </div>
+</section>
+
+<section id="experience">
+  <div class="sec-eyebrow"><span class="ln"></span>EXPERIENCE</div>
+  <h2 class="sec-title">Where I've <span class="gold">worked</span></h2>
+  <div class="timeline" id="tl"><div class="tl-fill" id="tf"></div>
+    <div class="t-item"><div class="t-dates">JAN 2026 — PRESENT</div><div class="t-role">IT System Engineer</div><div class="t-org">IMTENAN Group</div><div class="t-desc">Servers and VMware ESXi, Active Directory with DNS and DHCP, PRTG monitoring, FortiGate site-to-site VPN, plus the tools and rollouts above.</div></div>
+    <div class="t-item"><div class="t-dates">MAR 2022 — JAN 2026</div><div class="t-role">IT System &amp; Network Engineer</div><div class="t-org">Fathallah Beit El Gomla</div><div class="t-desc">Network connectivity across 10+ branches, 150+ support tickets resolved monthly, and IP camera/CCTV setup.</div></div>
+    <div class="t-item"><div class="t-dates">MAR 2021 — MAR 2022</div><div class="t-role">IT Specialist</div><div class="t-org">Carrefour Egypt</div><div class="t-desc">On-site support for POS systems and store network connectivity.</div></div>
+    <div class="t-item"><div class="t-dates">FEB 2020 — MAR 2021</div><div class="t-role">IT Support</div><div class="t-org">Military Service</div><div class="t-desc">IT support for 100+ users in a structured environment, with preventive maintenance to reduce downtime.</div></div>
+  </div>
+</section>
+
+<section id="education">
+  <div class="sec-eyebrow"><span class="ln"></span>EDUCATION &amp; CERTIFICATIONS</div>
+  <h2 class="sec-title">Where I <span class="gold">learned</span></h2>
+  <div class="proj-grid">
+    <div class="proj-card">
+      <div class="proj-icon"><svg viewBox="0 0 24 24"><path d="M2 9l10-5 10 5-10 5z"/><path d="M6 11v5c0 1.5 3 3 6 3s6-1.5 6-3v-5"/></svg></div>
+      <h3>Bachelor of Computer Science</h3>
+      <div class="proj-sub">Higher Technological Institute (HTI), 10th of Ramadan — 2019</div>
+      <div class="chips"><span>Arabic — Native</span><span>English — Professional Working</span></div>
+    </div>
+    <div class="proj-card">
+      <div class="proj-icon"><svg viewBox="0 0 24 24"><circle cx="12" cy="9" r="6"/><path d="m8.5 14-1.5 8 5-3 5 3-1.5-8"/></svg></div>
+      <h3>Certifications &amp; Courses</h3>
+      <div class="chips"><span>CCNA</span><span>MCSA</span><span>CompTIA A+</span><span>CompTIA Network+</span><span>VMware vSphere</span><span>VMware Horizon (studying)</span><span>Python Web Development</span><span>HTML, CSS, JavaScript</span><span>Microsoft Office</span></div>
+    </div>
+  </div>
+</section>
+
+<section id="contact" class="contact-wrap">
+  <div class="sec-eyebrow" style="justify-content:center"><span class="ln"></span>CONTACT<span class="ln"></span></div>
+  <h2 class="sec-title" style="margin:0 auto 2.2rem">Let's talk <span class="gold">infrastructure</span>.</h2>
+  <a class="big-mail" href="mailto:eslam.abbas.jobs@gmail.com">eslam.abbas.jobs@gmail.com</a>
+  <div class="contact-row">
+    <a class="btn outline" href="tel:+201004802080">+20 100 480 2080</a>
+    <a class="btn outline" href="https://www.linkedin.com/in/eslam-abbas-45b952209" target="_blank" rel="noopener">LinkedIn</a>
+    <a class="btn outline" href="Eslam_Abbas_CV.pdf" target="_blank" rel="noopener">◉ View CV</a>
+    <a class="btn solid" href="Eslam_Abbas_CV.pdf" download>↓ Download CV</a>
+  </div>
+</section>
+
+<footer>Eslam Abbas · IT Systems Engineer · Cairo, Egypt · 2026</footer>
+
+<div class="video-modal-overlay" id="vmo"><div class="video-modal"><div class="video-modal-head"><span id="vmt"></span><button class="video-modal-close" onclick="closeVideo()" aria-label="Close">&times;</button></div><div class="video-modal-body" id="vmb"></div></div></div>
+
+<script>
+const $=s=>document.querySelector(s);
+/* --- network canvas: nodes = branches, gold packets = data, cursor lights nearby nodes --- */
+const cv=$('#net'),g=cv.getContext('2d'),hero=$('#home'),ph=$('#ph'),dpr=Math.min(devicePixelRatio||1,2);
+let W,H,C,N=[],P=[],mx=-999,my=-999;
+function size(){const r=hero.getBoundingClientRect();W=r.width;H=r.height;cv.width=W*dpr;cv.height=H*dpr;g.setTransform(dpr,0,0,dpr,0,0);
+  const p=ph.getBoundingClientRect();C={x:p.left-r.left+p.width/2,y:p.top-r.top+p.height/2};
+  N=Array.from({length:Math.round(W*H/16000)+14},()=>({x:Math.random()*W,y:Math.random()*H,vx:(Math.random()-.5)*.25,vy:(Math.random()-.5)*.25}))}
+addEventListener('resize',size);size();
+hero.addEventListener('pointermove',e=>{const r=hero.getBoundingClientRect();mx=e.clientX-r.left;my=e.clientY-r.top;
+  const k=ph.getBoundingClientRect();ph.style.transform=`perspective(60rem) rotateY(${(e.clientX-k.left-k.width/2)/k.width*8}deg) rotateX(${-(e.clientY-k.top-k.height/2)/k.height*8}deg)`});
+hero.addEventListener('pointerleave',()=>{mx=my=-999;ph.style.transform=''});
+let f=0;
+(function loop(){f++;g.clearRect(0,0,W,H);const D=Math.max(110,W*.14);
+  for(const n of N){n.x+=n.vx;n.y+=n.vy;if(n.x<0||n.x>W)n.vx*=-1;if(n.y<0||n.y>H)n.vy*=-1}
+  const hub=N.map(n=>({n,d:Math.hypot(n.x-C.x,n.y-C.y)})).sort((a,b)=>a.d-b.d).slice(0,9);
+  for(let i=0;i<N.length;i++)for(let j=i+1;j<N.length;j++){const a=N[i],b=N[j],d=Math.hypot(a.x-b.x,a.y-b.y);
+    if(d<D){const m=Math.max(0,1-Math.hypot((a.x+b.x)/2-mx,(a.y+b.y)/2-my)/160);g.strokeStyle=`rgba(238,168,62,${(1-d/D)*.2+m*.5})`;g.lineWidth=.6+m;g.beginPath();g.moveTo(a.x,a.y);g.lineTo(b.x,b.y);g.stroke()}}
+  for(const h of hub){g.strokeStyle=`rgba(238,168,62,${.28*(1-h.d/(W*.6))+.06})`;g.lineWidth=1;g.beginPath();g.moveTo(C.x,C.y);g.lineTo(h.n.x,h.n.y);g.stroke()}
+  if(f%22==0){const h=hub[Math.floor(Math.random()*hub.length)].n,out=Math.random()<.5;P.push({a:out?C:h,b:out?h:C,t:0})}
+  P=P.filter(p=>(p.t+=.012)<1);
+  for(const p of P){const x=p.a.x+(p.b.x-p.a.x)*p.t,y=p.a.y+(p.b.y-p.a.y)*p.t;g.fillStyle='#FFD27A';g.shadowColor='#EEA83E';g.shadowBlur=12;g.beginPath();g.arc(x,y,2.4,0,7);g.fill();g.shadowBlur=0}
+  for(const n of N){const m=Math.max(0,1-Math.hypot(n.x-mx,n.y-my)/120);g.fillStyle=`rgba(255,210,122,${.35+m*.65})`;g.beginPath();g.arc(n.x,n.y,1.6+m*3,0,7);g.fill()}
+  requestAnimationFrame(loop)})();
+
+/* --- typing line --- */
+const cmds=['sync --fingerprint --all-branches','sync --dvr-clock --every-device','scan --disk --ram --domain','triage --email-to-ticket'];
+let ci=0,ch=0,del=false;const ty=$('#ty');
+(function type(){const s=cmds[ci];ch+=del?-1:1;ty.textContent=s.slice(0,ch);let t=del?25:55;
+  if(!del&&ch==s.length){del=true;t=1600}else if(del&&ch==0){del=false;ci=(ci+1)%cmds.length;t=300}setTimeout(type,t)})();
+
+/* --- marquee --- */
+const sk=['Windows Server','Active Directory','VMware ESXi','FortiGate','Networking','Python','Flask','PowerShell','CIM/WMI','Snipe-IT','Hikvision ISAPI','MeshCentral','Group Policy','WDS','MDT','PaperCut'];
+$('#mq').innerHTML=[...sk,...sk].map(s=>`<span>${s}</span>`).join('');
+
+/* --- automation log --- */
+const L=['<b>✓</b> <em>sync</em> fingerprint templates → all branches','<b>✓</b> <em>sync</em> DVR/NVR clocks → every device aligned','<b>✓</b> <em>scan</em> disk health + RAM → domain-wide report','<b>✓</b> <em>triage</em> incoming email → ticket created','<b>✓</b> <em>link</em> ticket → asset → user (Snipe-IT)','<b>✓</b> <em>vpn</em> branch tunnels → healthy','<b>✓</b> <em>pxe</em> boot from network → image applied','<b>✓</b> <em>gpo</em> MeshCentral agent → installed'];
+let li=0;const lg=$('#log');
+function addLog(){const p=document.createElement('p');p.innerHTML='<span style="opacity:.45">$ </span>'+L[li++%L.length];lg.appendChild(p);while(lg.children.length>7)lg.firstChild.remove()}
+addLog();setInterval(addLog,1700);
+
+/* --- counters --- */
+const io=new IntersectionObserver(es=>es.forEach(e=>{if(!e.isIntersecting)return;io.unobserve(e.target);const el=e.target,n=+el.dataset.n,t0=performance.now();
+  (function s(t){const k=Math.min(1,(t-t0)/1400);el.textContent=Math.round(n*(1-Math.pow(1-k,3)))+(k==1?el.dataset.s:'');if(k<1)requestAnimationFrame(s)})(t0)}),{threshold:.6});
+document.querySelectorAll('[data-n]').forEach(e=>io.observe(e));
+
+/* --- card spotlight, scroll progress, timeline fill, active nav --- */
+document.querySelectorAll('.proj-card').forEach(c=>c.addEventListener('pointermove',e=>{const r=c.getBoundingClientRect();c.style.setProperty('--x',e.clientX-r.left+'px');c.style.setProperty('--y',e.clientY-r.top+'px')}));
+const links=[...document.querySelectorAll('.nav-links a')],secs=links.map(a=>$(a.getAttribute('href')));
+function onScroll(){const d=document.documentElement;$('#pg').style.width=scrollY/(d.scrollHeight-innerHeight)*100+'%';
+  const r=$('#tl').getBoundingClientRect();$('#tf').style.height=Math.max(0,Math.min(r.height,innerHeight*.6-r.top))+'px';
+  let a=0;secs.forEach((s,i)=>{if(s.getBoundingClientRect().top<innerHeight*.4)a=i});links.forEach((l,i)=>l.classList.toggle('active',i==a))}
+addEventListener('scroll',onScroll,{passive:true});onScroll();
+
+/* --- video modal --- */
+const vids={fingerprint:"E1HY2pmcCdQ",tracker:"dznGJttPyUM",dvrnvr:"AFu2GS5dqYU",hardware:"EyXus4Ru3BU"};
+const names={fingerprint:"Fingerprint Device Sync Platform",tracker:"IT Assets & Ticketing Tracker",dvrnvr:"DVR/NVR Time Sync Tool",hardware:"Hardware Health & Inventory Automation"};
+function openVideo(k){$('#vmt').textContent=names[k];const id=vids[k];$('#vmb').innerHTML=id?'<iframe src="https://www.youtube.com/embed/'+id+'?autoplay=1" allow="autoplay" allowfullscreen></iframe>':'<div class="soon">Demo video coming soon</div>';$('#vmo').classList.add('open')}
+function closeVideo(){$('#vmo').classList.remove('open');$('#vmb').innerHTML=''}
+$('#vmo').addEventListener('click',e=>{if(e.target.id==='vmo')closeVideo()});
+addEventListener('keydown',e=>{if(e.key==='Escape')closeVideo()});
+</script>
+</body>
+</html>
